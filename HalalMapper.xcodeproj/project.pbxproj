@@ -14,6 +14,8 @@
 		72CF2CBE1AEE9A53003F3322 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72CF2CBD1AEE9A53003F3322 /* Images.xcassets */; };
 		72CF2CC11AEE9A53003F3322 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CF2CBF1AEE9A53003F3322 /* LaunchScreen.xib */; };
 		72CF2CCD1AEE9A54003F3322 /* HalalMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CCC1AEE9A54003F3322 /* HalalMapperTests.m */; };
+		72CF2CD71AEE9C68003F3322 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD61AEE9C68003F3322 /* MapKit.framework */; };
+		72CF2CD91AEE9CBA003F3322 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		72CF2CC61AEE9A54003F3322 /* HalalMapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HalalMapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CF2CCB1AEE9A54003F3322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72CF2CCC1AEE9A54003F3322 /* HalalMapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HalalMapperTests.m; sourceTree = "<group>"; };
+		72CF2CD61AEE9C68003F3322 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CF2CD91AEE9CBA003F3322 /* CoreLocation.framework in Frameworks */,
+				72CF2CD71AEE9C68003F3322 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,8 @@
 		72CF2CA41AEE9A53003F3322 = {
 			isa = PBXGroup;
 			children = (
+				72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */,
+				72CF2CD61AEE9C68003F3322 /* MapKit.framework */,
 				72CF2CAF1AEE9A53003F3322 /* HalalMapper */,
 				72CF2CC91AEE9A54003F3322 /* HalalMapperTests */,
 				72CF2CAE1AEE9A53003F3322 /* Products */,
@@ -416,6 +424,7 @@
 				72CF2CD21AEE9A54003F3322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		72CF2CD31AEE9A54003F3322 /* Build configuration list for PBXNativeTarget "HalalMapperTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +433,7 @@
 				72CF2CD51AEE9A54003F3322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
