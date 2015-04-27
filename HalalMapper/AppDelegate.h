@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    CLLocationManager  *locationManager;
+    IBOutlet MKMapView *mapView;
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @end
 

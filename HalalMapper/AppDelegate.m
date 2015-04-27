@@ -14,9 +14,20 @@
 
 @implementation AppDelegate
 
+@synthesize window;
+@synthesize mapView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.mapView.delegate = self;
+    
+    locationManager = [[CLLocationManager alloc] init];
+    [locationManager setDelegate:self];
+    [locationManager setDistanceFilter:kCLDistanceFilterNone];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.mapView setShowsUserLocation:YES];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 
