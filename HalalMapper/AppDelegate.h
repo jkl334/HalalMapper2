@@ -7,18 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
-    CLLocationManager  *locationManager;
-    IBOutlet MKMapView *mapView;
-
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) IBOutlet MKMapView *mapView;
+@property CLLocation        *currentLocation;
+@property CLLocationManager *locationManager;
+
 
 @end
 
