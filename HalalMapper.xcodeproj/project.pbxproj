@@ -29,6 +29,7 @@
 		CEE47DF01AF12B8E009D6C49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */; };
 		CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */; };
 		CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */; };
+		CEE47DF81AF16C15009D6C49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,9 @@
 		CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "GoogleMaps-iOS-1.9.2/GoogleMaps.framework"; sourceTree = "<group>"; };
+		CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_DatabaseHelper.h; sourceTree = "<group>"; };
+		CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_DatabaseHelper.m; sourceTree = "<group>"; };
+		CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE47DF81AF16C15009D6C49 /* libsqlite3.dylib in Frameworks */,
 				CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */,
 				CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */,
 				CEE47DF01AF12B8E009D6C49 /* QuartzCore.framework in Frameworks */,
@@ -108,6 +113,7 @@
 		72CF2CA41AEE9A53003F3322 = {
 			isa = PBXGroup;
 			children = (
+				CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */,
 				CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */,
 				CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */,
 				CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */,
@@ -144,6 +150,8 @@
 			children = (
 				72CF2CB41AEE9A53003F3322 /* AppDelegate.h */,
 				72CF2CB51AEE9A53003F3322 /* AppDelegate.m */,
+				CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */,
+				CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */,
 				72CF2CB71AEE9A53003F3322 /* ViewController.h */,
 				72CF2CB81AEE9A53003F3322 /* ViewController.m */,
 				72CF2CBA1AEE9A53003F3322 /* Main.storyboard */,
