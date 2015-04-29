@@ -16,8 +16,10 @@
 
 +(NSObject_DatabaseHelper*)getSharedInstance;
 -(BOOL)createDB;
--(BOOL) saveData:(NSString*)registerNumber name:(NSString*)name
-      department:(NSString*)department year:(NSString*)year;
--(NSArray*) findByRegisterNumber:(NSString*)registerNumber;
+- (BOOL) saveData:(NSString*)cartid name:(NSString*)name
+         latitude:(NSString*)latitude longitude:(NSString*)longitude
+            likes:(NSString*)likes dislikes:(NSString*)dislikes
+         freepita:(NSString*)freepita drinkincluded(NSString*)drinkincluded greensauce(NSString*)greensauce;
+-(NSArray*) findByRegisterNumber:(NSString*)cartid;
 
 @end

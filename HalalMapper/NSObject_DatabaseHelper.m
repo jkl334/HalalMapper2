@@ -41,7 +41,7 @@ static sqlite3_stmt *statement = nil;
         {
             char *errMsg;
             const char *sql_stmt =
-            "create table if not exists carts (cartid integer
+            "CREATE TABLE IF NOT EXISTS carts (cartid integer
             primary key, name text, latitude num, longitude num, likes int, dislikes int, freepita text, drinkincluded text, greensauce text)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg)
                 != SQLITE_OK)
@@ -61,16 +61,16 @@ static sqlite3_stmt *statement = nil;
 }
 
 - (BOOL) saveData:(NSString*)cartid name:(NSString*)name
-       latitude:(NSFloat*)latitude longitude:(NSFloat*)longitude
-        likes:(NSInteger*)likes dislikes:(NSInteger*)dislikes
+       latitude:(NSString*)latitude longitude:(NSString*)longitude
+        likes:(NSString*)likes dislikes:(NSString*)dislikes
          freepita:(NSString*)freepita drinkincluded(NSString*)drinkincluded greensauce(NSString*)greensauce;
 {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *insertSQL = [NSString stringWithFormat:@"insert into
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO
                                carts (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values
-                               (\"%d\",\"%@\", \"%f\", \"%f\",\"%d\",\"%d\",\"%@\",\"%@\",\"%@\")",[cartid integerValue],
+                               (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")",[cartid integerValue],
                                 name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce];
                                 const char *insert_stmt = [insertSQL UTF8String];
                                 sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
@@ -86,14 +86,14 @@ static sqlite3_stmt *statement = nil;
                                 return NO;
                                 }
                                 
-                                - (NSArray*) findByRegisterNumber:(NSString*)registerNumber
+- (NSArray*) findByCartId:(NSString*)cartid
         {
             const char *dbpath = [databasePath UTF8String];
             if (sqlite3_open(dbpath, &database) == SQLITE_OK)
             {
                 NSString *querySQL = [NSString stringWithFormat:
-                                      @"select name, department, year from studentsDetail where
-                                      regno=\"%@\"",registerNumber];
+                                      @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM carts WHERE
+                                      cartid=\"%@\"",cartid];
                 const char *query_stmt = [querySQL UTF8String];
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
                 if (sqlite3_prepare_v2(database,
@@ -104,12 +104,28 @@ static sqlite3_stmt *statement = nil;
                         NSString *name = [[NSString alloc] initWithUTF8String:
                                           (const char *) sqlite3_column_text(statement, 0)];
                         [resultArray addObject:name];
-                        NSString *department = [[NSString alloc] initWithUTF8String:
+                        NSString *latitude = [[NSString alloc] initWithUTF8String:
                                                 (const char *) sqlite3_column_text(statement, 1)];
-                        [resultArray addObject:department];
-                        NSString *year = [[NSString alloc]initWithUTF8String:
+                        [resultArray addObject:latitude];
+                        NSString *longitude = [[NSString alloc]initWithUTF8String:
                                           (const char *) sqlite3_column_text(statement, 2)];
-                        [resultArray addObject:year];
+                        [resultArray addObject:longitude];
+                        NSString *likes = [[NSString alloc]initWithUTF8String:
+                                               (const char *) sqlite3_column_text(statement, 3)];
+                        [resultArray addObject:likes];
+                        NSString *dislikes = [[NSString alloc]initWithUTF8String:
+                                               (const char *) sqlite3_column_text(statement, 4)];
+                        [resultArray addObject:dislikes];
+                        NSString *freepita = [[NSString alloc]initWithUTF8String:
+                                              (const char *) sqlite3_column_text(statement, 5)];
+                        [resultArray addObject:freepita];
+                        NSString *drinkincluded = [[NSString alloc]initWithUTF8String:
+                                              (const char *) sqlite3_column_text(statement, 6)];
+                        [resultArray addObject:drinkincluded];
+                        NSString *greensauce = [[NSString alloc]initWithUTF8String:
+                                              (const char *) sqlite3_column_text(statement, 7)];
+                        [resultArray addObject:greensauce];
+                        
                         return resultArray;
                     }
                     else{
