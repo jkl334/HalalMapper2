@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
-    
+@interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, GMSMapViewDelegate>
+
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocation *currentLocation;
 @property CLLocationManager *manager;

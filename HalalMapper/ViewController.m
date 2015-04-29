@@ -8,29 +8,62 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface ViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    GMSMapView *mapView_;
+}
 
-@synthesize mapView;
+//@synthesize mapView;
 @synthesize manager;
 @synthesize currentLocation;
 @synthesize touchMapCoordinate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    mapView.delegate = (id < MKMapViewDelegate >)self;
-    [self attachTapToMap];
-    [self initMap];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
+                                                            longitude:151.20
+                                                                 zoom:6];
+    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.myLocationEnabled = YES;
+    self.view = mapView_;
+    
+    // Creates a marker in the center of the map.
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+    marker.title = @"Sydney";
+    marker.snippet = @"Australia";
+    marker.map = mapView_;
+    /*
+    [manager requestAlwaysAuthorization];
+    [manager requestWhenInUseAuthorization];
+    CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
+    
+    if (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
+        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        
+        [self.manager startUpdatingLocation];
+        mapView.delegate = (id < MKMapViewDelegate >)self;
+        mapView.showsUserLocation = YES;
+        
+    }
+    //mapView.delegate = (id < MKMapViewDelegate >)self;
+    //[self attachTapToMap];
+    //[self initMap];
+    //mapView.showsUserLocation = YES;
+     
+     */
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/*
 
 -(void)initMap{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -67,5 +100,6 @@
                                           otherButtonTitles:@"Yes", nil];
     [alert show];
 }
+ */
 
 @end
