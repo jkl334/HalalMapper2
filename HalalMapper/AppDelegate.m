@@ -20,14 +20,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:@"AIzaSyBOdYQ9-hrn_JrTZAOXPFr8wqA2PfYMGqI"];
-    /*
-    locationManager = [[CLLocationManager alloc] init];
-    [locationManager setDelegate:self];
-    [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-    [locationManager setDistanceFilter:50];
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager startUpdatingLocation];
-     */
     return YES;
 }
 
