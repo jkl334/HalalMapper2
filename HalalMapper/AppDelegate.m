@@ -23,8 +23,9 @@
     [locationManager setDelegate:self];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [locationManager setDistanceFilter:50];
-    // [locationManager requestWhenInUseAuthorization];
-    // [locationManager startUpdatingLocation];
+//    [locationManager requestWhenInUseAuthorization];
+    [locationManager requestAlwaysAuthorization];
+    [locationManager startUpdatingLocation];
     return YES;
 }
 
