@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="266" y="574"/>
         </scene>
-        <!--View Controller-->
+        <!--Data View Controller-->
         <scene sceneID="eNd-8c-xH6">
             <objects>
-                <viewController id="itU-H7-rbd" sceneMemberID="viewController">
+                <viewController id="itU-H7-rbd" customClass="DataViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1dr-yC-1ze"/>
                         <viewControllerLayoutGuide type="bottom" id="AgE-kN-an3"/>
@@ -98,9 +98,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Cart Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06d-lM-MWT">
+                                <rect key="frame" x="90" y="33" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="cartAddress" destination="06d-lM-MWT" id="3bG-K5-nnB"/>
+                        <outlet property="drinkBool" destination="1hW-fQ-fD7" id="Nrn-Ed-XBu"/>
+                        <outlet property="greenSauceBool" destination="YRK-6E-NkM" id="U1o-bE-MTn"/>
+                        <outlet property="pitaBool" destination="D3i-b5-JaT" id="qUi-Jl-tGz"/>
+                        <outlet property="thumbsDown" destination="JmU-ri-jS7" id="Lh3-p7-tIu"/>
+                        <outlet property="thumbsUp" destination="2sc-kk-p4l" id="dzT-mv-JuL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sU0-Y8-DT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
