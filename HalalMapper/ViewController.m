@@ -18,7 +18,6 @@
     GMSMapView *mapView_;
 }
 
-//@synthesize mapView;
 @synthesize manager;
 @synthesize currentLocation;
 @synthesize touchMapCoordinate;
@@ -38,7 +37,6 @@
     marker.title = @"You";
     marker.snippet = @"Hungry for Halal";
     marker.map = mapView_;
-
 }
 
 - (void)didReceiveMemoryWarning {

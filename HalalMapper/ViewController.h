@@ -13,8 +13,6 @@
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, GMSMapViewDelegate>
 
-
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property CLLocation *currentLocation;
 @property CLLocationManager *manager;
 @property CLLocationCoordinate2D touchMapCoordinate;
