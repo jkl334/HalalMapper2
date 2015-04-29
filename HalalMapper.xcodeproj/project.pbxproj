@@ -16,7 +16,6 @@
 		72CF2CCD1AEE9A54003F3322 /* HalalMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CCC1AEE9A54003F3322 /* HalalMapperTests.m */; };
 		72CF2CD71AEE9C68003F3322 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD61AEE9C68003F3322 /* MapKit.framework */; };
 		72CF2CD91AEE9CBA003F3322 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */; };
-		CEE47DDA1AF1277D009D6C49 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DD91AF1277D009D6C49 /* GoogleMaps.framework */; };
 		CEE47DDC1AF12AF0009D6C49 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE47DDB1AF12AF0009D6C49 /* GoogleMaps.bundle */; };
 		CEE47DDE1AF12B1E009D6C49 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DDD1AF12B1E009D6C49 /* AVFoundation.framework */; };
 		CEE47DE01AF12B3D009D6C49 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DDF1AF12B3D009D6C49 /* CoreData.framework */; };
@@ -29,6 +28,7 @@
 		CEE47DEE1AF12B88009D6C49 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DED1AF12B88009D6C49 /* OpenGLES.framework */; };
 		CEE47DF01AF12B8E009D6C49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */; };
 		CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */; };
+		CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +70,7 @@
 		CEE47DED1AF12B88009D6C49 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "GoogleMaps-iOS-1.9.2/GoogleMaps.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */,
 				CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */,
 				CEE47DF01AF12B8E009D6C49 /* QuartzCore.framework in Frameworks */,
 				CEE47DEE1AF12B88009D6C49 /* OpenGLES.framework in Frameworks */,
@@ -88,7 +90,6 @@
 				CEE47DE21AF12B45009D6C49 /* CoreText.framework in Frameworks */,
 				CEE47DE01AF12B3D009D6C49 /* CoreData.framework in Frameworks */,
 				CEE47DDE1AF12B1E009D6C49 /* AVFoundation.framework in Frameworks */,
-				CEE47DDA1AF1277D009D6C49 /* GoogleMaps.framework in Frameworks */,
 				72CF2CD91AEE9CBA003F3322 /* CoreLocation.framework in Frameworks */,
 				72CF2CD71AEE9C68003F3322 /* MapKit.framework in Frameworks */,
 			);
@@ -107,6 +108,7 @@
 		72CF2CA41AEE9A53003F3322 = {
 			isa = PBXGroup;
 			children = (
+				CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */,
 				CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */,
 				CEE47DEF1AF12B8E009D6C49 /* QuartzCore.framework */,
 				CEE47DED1AF12B88009D6C49 /* OpenGLES.framework */,
@@ -410,6 +412,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/User/Downloads/GoogleMaps-iOS-1.9.2",
+					"$(PROJECT_DIR)/GoogleMaps-iOS-1.9.2",
 				);
 				INFOPLIST_FILE = HalalMapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,6 +428,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/User/Downloads/GoogleMaps-iOS-1.9.2",
+					"$(PROJECT_DIR)/GoogleMaps-iOS-1.9.2",
 				);
 				INFOPLIST_FILE = HalalMapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
