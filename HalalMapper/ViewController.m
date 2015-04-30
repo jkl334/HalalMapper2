@@ -33,10 +33,10 @@
     
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(40.7286689, -73.99566199999998);
-    marker.title = @"You";
-    marker.snippet = @"Hungry for Halal";
-    marker.map = mapView_;
+    marker.position   = CLLocationCoordinate2DMake(40.7286689, -73.99566199999998);
+    marker.title      = @"You";
+    marker.snippet    = @"Hungry for Halal";
+    marker.map        = mapView_;
 }
 
 - (void)didReceiveMemoryWarning {

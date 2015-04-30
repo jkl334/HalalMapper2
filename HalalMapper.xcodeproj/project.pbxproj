@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72B117901AF173EC0043E8BD /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B1178F1AF173EC0043E8BD /* DataViewController.m */; };
+		72B117931AF17BAA0043E8BD /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B117921AF17BAA0043E8BD /* FavoritesViewController.m */; };
 		72CF2CB31AEE9A53003F3322 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CB21AEE9A53003F3322 /* main.m */; };
 		72CF2CB61AEE9A53003F3322 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CB51AEE9A53003F3322 /* AppDelegate.m */; };
 		72CF2CB91AEE9A53003F3322 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CB81AEE9A53003F3322 /* ViewController.m */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72B1178E1AF173EC0043E8BD /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
+		72B1178F1AF173EC0043E8BD /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
+		72B117911AF17BAA0043E8BD /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		72B117921AF17BAA0043E8BD /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		72CF2CAD1AEE9A53003F3322 /* HalalMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HalalMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72CF2CB11AEE9A53003F3322 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72CF2CB21AEE9A53003F3322 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 				72CF2CB51AEE9A53003F3322 /* AppDelegate.m */,
 				CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */,
 				CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */,
+				72B1178E1AF173EC0043E8BD /* DataViewController.h */,
+				72B1178F1AF173EC0043E8BD /* DataViewController.m */,
+				72B117911AF17BAA0043E8BD /* FavoritesViewController.h */,
+				72B117921AF17BAA0043E8BD /* FavoritesViewController.m */,
 				72CF2CB71AEE9A53003F3322 /* ViewController.h */,
 				72CF2CB81AEE9A53003F3322 /* ViewController.m */,
 				72CF2CBA1AEE9A53003F3322 /* Main.storyboard */,
@@ -289,6 +299,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72B117931AF17BAA0043E8BD /* FavoritesViewController.m in Sources */,
+				72B117901AF173EC0043E8BD /* DataViewController.m in Sources */,
 				72CF2CB91AEE9A53003F3322 /* ViewController.m in Sources */,
 				72CF2CB61AEE9A53003F3322 /* AppDelegate.m in Sources */,
 				72CF2CB31AEE9A53003F3322 /* main.m in Sources */,
