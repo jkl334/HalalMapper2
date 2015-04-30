@@ -26,7 +26,7 @@
     [super viewDidLoad];
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
-                                                                 zoom:7];
+                                                                 zoom:15];
     mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.myLocationEnabled = YES;
     self.view = mapView_;
