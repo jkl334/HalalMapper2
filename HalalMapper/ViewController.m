@@ -26,10 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
+   NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
     
-    [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinksincluded:@"YES" greensauce:@"NO"];
-    
+    //pushing placeholder data
+    [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
+    [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
+    [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
+    [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
