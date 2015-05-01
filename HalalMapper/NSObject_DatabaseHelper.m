@@ -67,7 +67,7 @@ static sqlite3_stmt *statement   = nil;
          dislikes:(NSString*)dislikes
          freepita:(NSString*)freepita
     drinkincluded:(NSString*)drinkincluded
-       greensauce:(NSString*)greensauce    {
+       greensauce:(NSString*)greensauce;   {
     
     const char *dbpath      = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
