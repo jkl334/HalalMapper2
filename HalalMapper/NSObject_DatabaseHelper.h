@@ -27,6 +27,6 @@
          drinkincluded:(NSString*)drinkincluded
          greensauce:(NSString*)greensauce;
 
-- (NSArray*) findByRegisterNumber:(NSString*)cartid;
+- (NSArray*) findByCartId:(NSString*)cartid;
 
 @end

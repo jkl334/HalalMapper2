@@ -36,6 +36,13 @@
     [dataManager saveData:@"5" name:@"Rafiqis E8th and Broadway" latitude:@"40.730693" longitude:@"-73.992190" likes:@"27" dislikes:@"13" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
     [dataManager saveData:@"6" name:@"E14th and 3rd Ave" latitude:@"40.733265" longitude:@"-73.987513" likes:@"18" dislikes:@"15" freepita:@"NO" drinkincluded:@"YES" greensauce:@"NO"];
     [dataManager saveData:@"7" name:@"E14th and 4th Ave" latitude:@"40.734403" longitude:@"-73.989551" likes:@"12" dislikes:@"15" freepita:@"NO" drinkincluded:@"YES" greensauce:@"YES"];
+    [dataManager saveData:@"8" name:@"3rd St and 6th Ave" latitude:@"40.731021" longitude:@"-74.001374" likes:@"5" dislikes:@"27" freepita:@"NO" drinkincluded:@"NO" greensauce:@"NO"];
+    [dataManager saveData:@"9" name:@"Bleeker and Macdougal" latitude:@"40.732842" longitude:@"-74.000044" likes:@"24" dislikes:@"10" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
+    [dataManager saveData:@"10" name:@"Waverly and 6th Ave" latitude:@"40.729065" longitude:@"-73.995667" likes:@"12" dislikes:@"2" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
+    [dataManager saveData:@"11" name:@"13th St and 5th Ave" latitude:@"40.735314" longitude:@"-73.994079" likes:@"2" dislikes:@"0" freepita:@"NO" drinkincluded:@"YES" greensauce:@"YES"];
+    [dataManager saveData:@"12" name:@"Morton and Bedford" latitude:@"40.731005" longitude:@"-74.004679" likes:@"16" dislikes:@"16" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
+    [dataManager saveData:@"13" name:@"Macdougal and Houston" latitude:@"40.728091" longitude:@"-74.002115" likes:@"40" dislikes:@"23" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
+    [dataManager saveData:@"14" name:@"Bleeker and Christopher" latitude:@"40.733351" longitude:@"-74.004228" likes:@"20" dislikes:@"3" freepita:@"NO" drinkincluded:@"YES" greensauce:@"NO"];
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
@@ -50,6 +57,18 @@
     marker.title      = @"You";
     marker.snippet    = @"Hungry for Halal";
     marker.map        = mapView_;
+    
+  
+    NSArray *dankness = [dataManager findByCartId:@"1"];
+    
+    
+    float latitude1 = [dankness[2] integerValue];
+    float longitude2 = [dankness[3] integerValue];
+    GMSMarker *cart1 = [[GMSMarker alloc] init];
+    cart1.position = CLLocationCoordinate2DMake(latitude1, longitude2);
+    cart1.title    = @"HEY";
+    cart1.snippet  = @"likes:200 dislikes: 32";
+    cart1.map      = mapView_;
     
 }
 
