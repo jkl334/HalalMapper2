@@ -58,6 +58,18 @@
     marker.snippet    = @"Hungry for Halal";
     marker.map        = mapView_;
     
+  
+    NSArray *dankness = [dataManager findByCartId:@"1"];
+    
+    
+    float latitude1 = [dankness[2] integerValue];
+    float longitude2 = [dankness[3] integerValue];
+    GMSMarker *cart1 = [[GMSMarker alloc] init];
+    cart1.position = CLLocationCoordinate2DMake(latitude1, longitude2);
+    cart1.title    = @"HEY";
+    cart1.snippet  = @"likes:200 dislikes: 32";
+    cart1.map      = mapView_;
+    
 }
 
 - (void)didReceiveMemoryWarning {
