@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-//#import "NSObject_DatabaseHelper.h"
-//#import <GoogleMaps/GoogleMaps.h>
+
 
 @interface ViewController ()
 

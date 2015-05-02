@@ -14,7 +14,7 @@
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, GMSMapViewDelegate>
 
-@property CLLocation *currentLocation;
+@property CLLocation        *currentLocation;
 @property CLLocationManager *manager;
 @property CLLocationCoordinate2D touchMapCoordinate;
 
