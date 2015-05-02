@@ -37,11 +37,11 @@ nibBundleOrNil
 - (void)viewDidLoad {
     [super viewDidLoad];
     
- //  NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
+   NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
     
-    //[DBManager getSharedInstance]saveData:
-    //regNoTextField.text name:nameTextField.text department:
-    //departmentTextField.text year:yearTextField.text];
+    [DBManager getSharedInstance]saveData:
+    regNoTextField.text name:nameTextField.text department:
+    departmentTextField.text year:yearTextField.text];
     BOOL yesss;
     [[NSObject_DatabaseHelper getSharedInstance] createDB];
     yesss = [[NSObject_DatabaseHelper getSharedInstance]saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
@@ -62,6 +62,7 @@ nibBundleOrNil
     [dataManager saveData:@"13" name:@"Macdougal and Houston" latitude:@"40.728091" longitude:@"-74.002115" likes:@"40" dislikes:@"23" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
     [dataManager saveData:@"14" name:@"Bleeker and Christopher" latitude:@"40.733351" longitude:@"-74.004228" likes:@"20" dislikes:@"3" freepita:@"NO" drinkincluded:@"YES" greensauce:@"NO"];
     */
+    
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
@@ -80,7 +81,7 @@ nibBundleOrNil
     NSArray *dankness = [[NSObject_DatabaseHelper getSharedInstance] findByCartId:@"1"];
     
     
-    float latitude1 = [dankness[2] integerValue];
+    float latitude1  = [dankness[2] integerValue];
     float longitude2 = [dankness[3] integerValue];
     GMSMarker *cart1 = [[GMSMarker alloc] init];
     cart1.position = CLLocationCoordinate2DMake(latitude1, longitude2);
