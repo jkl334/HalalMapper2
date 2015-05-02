@@ -81,18 +81,17 @@ nibBundleOrNil
     marker.map        = mapView_;
     
   
-    NSArray *dankness = [cartsData findByCartId:@"1"];
-    NSLog(@"AOSDOASD");
-    NSString *shit = [[dankness objectAtIndex:1] stringValue];
-    NSLog(@"%@", shit);
+    NSArray  *cartDataRow = [cartsData findByCartId:@"1"];
+    NSString *cartName    = [cartDataRow objectAtIndex:0];
+    NSLog(@"%@", cartName);
     
-    float latitude1  = [dankness[2] integerValue];
-    float longitude2 = [dankness[3] integerValue];
+    float latitude   = [cartDataRow[1] floatValue];
+    float longitude  = [cartDataRow[2] floatValue];
     GMSMarker *cart1 = [[GMSMarker alloc] init];
-    cart1.position = CLLocationCoordinate2DMake(40.729065, -73.995667);
-    cart1.title    = [[dankness objectAtIndex:0] stringValue];
-    cart1.snippet  = @"likes:200 dislikes: 32";
-    cart1.map      = mapView_;
+    cart1.position   = CLLocationCoordinate2DMake(latitude, longitude);
+    cart1.title      = cartName;
+    cart1.snippet    = [ NSString stringWithFormat:@"Likes = %@. Dislikes = %@", [cartDataRow objectAtIndex:3], [cartDataRow objectAtIndex:4] ];
+    cart1.map        = mapView_;
     
     
 }

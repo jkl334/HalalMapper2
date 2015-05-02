@@ -27,6 +27,7 @@ static sqlite3_stmt *statement   = nil;
 - (BOOL) createDB {
     NSString *docsDir;
     NSArray  *dirPaths;
+    NSLog(@"init");
     // Get the documents directory
     dirPaths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
@@ -38,8 +39,8 @@ static sqlite3_stmt *statement   = nil;
     if ([filemgr fileExistsAtPath: databasePath ] == NO) {
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-            char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS carts (cartid integer primary key, name text, latitude num, longitude num, likes int, dislikes int, freepita text, drinkincluded text, greensauce text)";
+            char       *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS cartsTable (cartid integer primary key, name text, latitude text, longitude text, likes text, dislikes text, freepita text, drinkincluded text, greensauce text)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
                 isSuccess = NO;
                 NSLog(@"Failed to create table");
@@ -64,18 +65,21 @@ static sqlite3_stmt *statement   = nil;
          dislikes:(NSString*)dislikes
          freepita:(NSString*)freepita
     drinkincluded:(NSString*)drinkincluded
-       greensauce:(NSString*)greensauce;   {
+       greensauce:(NSString*)greensauce    {
     
-    const char *dbpath      = [databasePath UTF8String];
+    const char *dbpath = [databasePath UTF8String];
+    NSLog(@"%s", dbpath);
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO carts (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", [cartid integerValue], name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce];
-                                
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO cartsTable (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", [cartid integerValue], name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce];
         const char *insert_stmt = [insertSQL UTF8String];
+        
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
+            NSLog(@"Inserted");
             return YES;
         }
         else {
+            NSLog(@"Not inserted");
             return NO;
         }
         sqlite3_reset(statement);
@@ -86,7 +90,7 @@ static sqlite3_stmt *statement   = nil;
 - (NSArray*) findByCartId:(NSString*) cartid {
             const char *dbpath = [databasePath UTF8String];
             if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-                NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM carts WHERE cartid=\"%@\"",cartid];
+                NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM cartsTable WHERE cartid=\"%@\"",cartid];
                 
                 const char *query_stmt      = [querySQL UTF8String];
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
