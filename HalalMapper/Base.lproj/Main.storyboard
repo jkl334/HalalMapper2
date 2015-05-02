@@ -21,15 +21,18 @@
                             </connections>
                         </button>
                     </navigationItem>
+                    <connections>
+                        <segue destination="itU-H7-rbd" kind="push" id="UuU-vB-XEk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="266" y="574"/>
         </scene>
-        <!--Data View Controller-->
+        <!--dataViewController-->
         <scene sceneID="eNd-8c-xH6">
             <objects>
-                <viewController id="itU-H7-rbd" customClass="DataViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dataViewController" title="dataViewController" id="itU-H7-rbd" customClass="DataViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1dr-yC-1ze"/>
                         <viewControllerLayoutGuide type="bottom" id="AgE-kN-an3"/>
@@ -92,9 +95,6 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.080225848228442587" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soda" translatesAutoresizingMaskIntoConstraints="NO" id="J7e-6l-eRl">
-                                <rect key="frame" x="11" y="247" width="57" height="77"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bread" translatesAutoresizingMaskIntoConstraints="NO" id="CA9-5D-G3V">
                                 <rect key="frame" x="12" y="351" width="56" height="68"/>
                             </imageView>
@@ -107,9 +107,24 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="soda" translatesAutoresizingMaskIntoConstraints="NO" id="J7e-6l-eRl">
+                                <rect key="frame" x="11" y="252" width="57" height="77"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96084464473728703" blue="0.071325382377164681" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="63p-9e-8Of">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QYK-8v-sEK">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Back">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="drinkBool" destination="1hW-fQ-fD7" id="Nrn-Ed-XBu"/>
                         <outlet property="greenSauceBool" destination="YRK-6E-NkM" id="U1o-bE-MTn"/>
