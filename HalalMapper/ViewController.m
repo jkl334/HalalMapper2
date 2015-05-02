@@ -70,8 +70,15 @@
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    NSObject_DatabaseHelper *dataToPush = [NSObject_DatabaseHelper getSharedInstance];
+    NSArray *cartDataToPush = [dataToPush findByName:marker.title];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
+    
+    dataViewController.cartAddress.text = cartDataToPush[0];
+    
+
+    
     [self presentViewController:dataViewController animated:YES completion:nil];
 }
 
