@@ -70,8 +70,6 @@
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-//    DataViewController *dataViewController = [[DataViewController alloc] init];
-//    [self presentViewController:dataViewController animated:(YES) completion:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
     [self presentViewController:dataViewController animated:YES completion:nil];
