@@ -66,6 +66,17 @@
     }
     
     
+    for (NSArray *halalCart in cartArray) {
+        CLLocationCoordinate2D location = CLLocationCoordinate2DMake([halalCart[1] floatValue], [halalCart[2] floatValue]);
+        GMSMarker *marker = [GMSMarker markerWithPosition:location];
+        marker.title = halalCart[0];
+        marker.snippet = [NSString stringWithFormat:@"Likes = %@. Dislikes = %@", halalCart[3], halalCart[4]];
+        marker.map = mapView_;
+        [cartsList setObject: halalCart forKey:marker];
+    }
+    
+    
+    
     
     /*
      storeMarkerMap = [[NSDictionary alloc] init];
