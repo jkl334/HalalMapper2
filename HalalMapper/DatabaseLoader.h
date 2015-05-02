@@ -13,6 +13,8 @@
 
 + (void) createDatabaseAndLoad;
 
++ (NSObject_DatabaseHelper *) getDatabase;
+
 + (NSMutableArray *) getArrayOfCarts;
 
 @end

@@ -157,6 +157,12 @@
     
 }
 
++ (NSObject_DatabaseHelper *) getDatabase {
+    
+    NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
+    return cartsData;
+}
+
 + (NSMutableArray *) getArrayOfCarts {
     
     NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];

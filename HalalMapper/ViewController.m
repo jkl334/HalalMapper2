@@ -44,12 +44,12 @@
     self.view = mapView_;
     
     // Creates a marker in the center of the map.
-    UIImage *youAreHere = [UIImage imageNamed:@"man"];
+    UIImage *manIcon    = [UIImage imageNamed:@"man"];
     GMSMarker *marker   = [[GMSMarker alloc] init];
     marker.position     = CLLocationCoordinate2DMake(40.7286689, -73.99566199999998);
     marker.title        = @"You";
     marker.snippet      = @"Hungry for Halal";
-    marker.icon         = youAreHere;
+    marker.icon         = manIcon;
     marker.map          = mapView_;
     
     /* Initialize The Map with Markers */
@@ -70,13 +70,17 @@
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    NSObject_DatabaseHelper *dataToPush = [NSObject_DatabaseHelper getSharedInstance];
-    NSArray *cartDataToPush = [dataToPush findByName:marker.title];
+    
+    // Get Tapped Cart Data
+    NSObject_DatabaseHelper *dataToPush = [DatabaseLoader getDatabase];
+    NSArray *cartDataToPush             = [dataToPush findByName:marker.title];
+    
+    // Prepare dataViewController to push
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
     
     dataViewController.cartAddress.text = cartDataToPush[0];
-    
+    NSLog(@"%@", dataViewController.cartAddress.text);
 
     
     [self presentViewController:dataViewController animated:YES completion:nil];
