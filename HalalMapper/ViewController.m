@@ -74,12 +74,15 @@
     NSArray *cartDataToPush = [dataToPush findByName:marker.title];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
-    
+    //DataViewController *dataViewController = [[DataViewController alloc] init];
     dataViewController.cartAddress.text = cartDataToPush[0];
-    
-
-    
-    [self presentViewController:dataViewController animated:YES completion:nil];
+    dataViewController.thumbsUp.text = cartDataToPush[3];
+    dataViewController.thumbsDown.text = cartDataToPush[4];
+    dataViewController.pitaBool.text = cartDataToPush[5];
+    dataViewController.drinkBool.text = cartDataToPush[6];
+    dataViewController.greenSauceBool.text = cartDataToPush[7];
+    [self.navigationController pushViewController:dataViewController animated:YES];
+   // [self presentViewController:dataViewController animated:YES completion:nil];
 }
 
 
