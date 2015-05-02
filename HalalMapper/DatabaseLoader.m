@@ -15,9 +15,9 @@
     NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
     
     [cartsData saveData:@"0"
-                   name:@"W4th and Greene"
-               latitude:@"40.729065"
-              longitude:@"-73.995667"
+                   name:@"Washing Sqr South and LaGuardia"
+               latitude:@"40.729912"
+              longitude:@"-73.997630"
                   likes:@"20"
                dislikes:@"3"
                freepita:@"YES"
@@ -86,8 +86,8 @@
     
     [cartsData saveData:@"7"
                    name:@"Bleeker and Macdougal"
-               latitude:@"40.732842"
-              longitude:@"-74.000044"
+               latitude:@"40.729197"
+              longitude:@"-74.001020"
                   likes:@"24"
                dislikes:@"10"
                freepita:@"YES"
@@ -96,8 +96,8 @@
     
     [cartsData saveData:@"8"
                    name:@"Waverly and 6th Ave"
-               latitude:@"40.729065"
-              longitude:@"-73.995667"
+               latitude:@"40.732945"
+              longitude:@"-73.999819"
                   likes:@"12"
                dislikes:@"2"
                freepita:@"YES"
@@ -163,12 +163,10 @@
     
     // Array of records from DB
     NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
-
     for (int i = 0; i < 13; i++) {
         NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
         [cartArray insertObject:cartDataRow atIndex: i];
     }
-    
     return cartArray;
 }
 
