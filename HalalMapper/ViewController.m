@@ -39,9 +39,10 @@ nibBundleOrNil
     
    NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
     
-    [DBManager getSharedInstance]saveData:
-    regNoTextField.text name:nameTextField.text department:
-    departmentTextField.text year:yearTextField.text];
+//    [DBManager getSharedInstance]saveData:
+//    regNoTextField.text name:nameTextField.text department:
+//    departmentTextField.text year:yearTextField.text];
+    
     BOOL yesss;
     [[NSObject_DatabaseHelper getSharedInstance] createDB];
     yesss = [[NSObject_DatabaseHelper getSharedInstance]saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
@@ -84,10 +85,10 @@ nibBundleOrNil
     float latitude1  = [dankness[2] integerValue];
     float longitude2 = [dankness[3] integerValue];
     GMSMarker *cart1 = [[GMSMarker alloc] init];
-    cart1.position = CLLocationCoordinate2DMake(latitude1, longitude2);
-    cart1.title    = @"HEY";
-    cart1.snippet  = @"likes:200 dislikes: 32";
-    cart1.map      = mapView_;
+    cart1.position   = CLLocationCoordinate2DMake(latitude1, longitude2);
+    cart1.title      = @"HEY";
+    cart1.snippet    = @"likes:200 dislikes: 32";
+    cart1.map        = mapView_;
     
     
 }
