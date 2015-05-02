@@ -28,6 +28,7 @@
          greensauce:(NSString*)greensauce;
 
 - (NSArray*) findByName:(NSString*)name;
+
 - (NSArray*) findByCartId:(NSString*)cartid;
 
 @end

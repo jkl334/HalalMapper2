@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="104-xh-a1P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="104-xh-a1P">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
@@ -22,12 +22,12 @@
                         </button>
                     </navigationItem>
                     <connections>
-                        <segue destination="itU-H7-rbd" kind="push" id="UuU-vB-XEk"/>
+                        <segue destination="itU-H7-rbd" kind="push" id="006-Cb-wiY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="574"/>
+            <point key="canvasLocation" x="234" y="958"/>
         </scene>
         <!--dataViewController-->
         <scene sceneID="eNd-8c-xH6">
@@ -122,6 +122,9 @@
                             <state key="normal" title="Back">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <segue destination="vXZ-lx-hvc" kind="push" id="7FQ-dC-PYV"/>
+                            </connections>
                         </button>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -135,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sU0-Y8-DT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="683" y="574"/>
+            <point key="canvasLocation" x="841" y="708"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="aMG-sB-qnz">
@@ -162,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQh-yp-nmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="-118"/>
+            <point key="canvasLocation" x="252" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aFy-v5-bTf">
@@ -178,7 +181,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="toJ-Ss-E9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="574"/>
+            <point key="canvasLocation" x="-356" y="942"/>
         </scene>
     </scenes>
     <resources>
@@ -193,4 +196,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="7FQ-dC-PYV"/>
+    </inferredMetricsTieBreakers>
 </document>
