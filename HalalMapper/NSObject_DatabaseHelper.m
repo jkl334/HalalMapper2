@@ -8,7 +8,7 @@
 
 #import "NSObject_DatabaseHelper.h"
 
-static DBManager *sharedInstance = nil;
+static NSObject_DatabaseHelper *sharedInstance = nil;
 static sqlite3 *database         = nil;
 static sqlite3_stmt *statement   = nil;
 
@@ -132,4 +132,4 @@ static sqlite3_stmt *statement   = nil;
                 }
             }
             return nil;
-}
+}@end

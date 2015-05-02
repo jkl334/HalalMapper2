@@ -23,11 +23,29 @@
 @synthesize currentLocation;
 @synthesize touchMapCoordinate;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)
+nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
+ //  NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
     
+    //[DBManager getSharedInstance]saveData:
+    //regNoTextField.text name:nameTextField.text department:
+    //departmentTextField.text year:yearTextField.text];
+    BOOL yesss;
+    [[NSObject_DatabaseHelper getSharedInstance] createDB];
+    yesss = [[NSObject_DatabaseHelper getSharedInstance]saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
+   /*
     //pushing placeholder data
     [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
     [dataManager saveData:@"2" name:@"W4th and Washington Sqr East" latitude:@"40.729224" longitude:@"-73.996010" likes:@"16" dislikes:@"11" freepita:@"NO" drinkincluded:@"NO" greensauce:@"YES"];
@@ -43,7 +61,7 @@
     [dataManager saveData:@"12" name:@"Morton and Bedford" latitude:@"40.731005" longitude:@"-74.004679" likes:@"16" dislikes:@"16" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
     [dataManager saveData:@"13" name:@"Macdougal and Houston" latitude:@"40.728091" longitude:@"-74.002115" likes:@"40" dislikes:@"23" freepita:@"YES" drinkincluded:@"YES" greensauce:@"YES"];
     [dataManager saveData:@"14" name:@"Bleeker and Christopher" latitude:@"40.733351" longitude:@"-74.004228" likes:@"20" dislikes:@"3" freepita:@"NO" drinkincluded:@"YES" greensauce:@"NO"];
-    
+    */
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
@@ -59,7 +77,7 @@
     marker.map        = mapView_;
     
   
-    NSArray *dankness = [dataManager findByCartId:@"1"];
+    NSArray *dankness = [[NSObject_DatabaseHelper getSharedInstance] findByCartId:@"1"];
     
     
     float latitude1 = [dankness[2] integerValue];
@@ -69,6 +87,7 @@
     cart1.title    = @"HEY";
     cart1.snippet  = @"likes:200 dislikes: 32";
     cart1.map      = mapView_;
+    
     
 }
 

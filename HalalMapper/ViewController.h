@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "NSObject_DatabaseHelper.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, GMSMapViewDelegate>
 

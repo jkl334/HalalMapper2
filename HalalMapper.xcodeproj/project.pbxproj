@@ -32,6 +32,8 @@
 		CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF11AF12B98009D6C49 /* SystemConfiguration.framework */; };
 		CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF31AF16756009D6C49 /* GoogleMaps.framework */; };
 		CEE47DF81AF16C15009D6C49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */; };
+		CEE47DF91AF44AF3009D6C49 /* NSObject_DatabaseHelper.h in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */; };
+		CEE47DFA1AF45FBA009D6C49 /* NSObject_DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE47DF91AF44AF3009D6C49 /* NSObject_DatabaseHelper.h in Frameworks */,
 				CEE47DF81AF16C15009D6C49 /* libsqlite3.dylib in Frameworks */,
 				CEE47DF41AF16757009D6C49 /* GoogleMaps.framework in Frameworks */,
 				CEE47DF21AF12B98009D6C49 /* SystemConfiguration.framework in Frameworks */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE47DFA1AF45FBA009D6C49 /* NSObject_DatabaseHelper.m in Sources */,
 				72B117931AF17BAA0043E8BD /* FavoritesViewController.m in Sources */,
 				72B117901AF173EC0043E8BD /* DataViewController.m in Sources */,
 				72CF2CB91AEE9A53003F3322 /* ViewController.m in Sources */,
