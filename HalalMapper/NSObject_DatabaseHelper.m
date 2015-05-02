@@ -9,8 +9,8 @@
 #import "NSObject_DatabaseHelper.h"
 
 static NSObject_DatabaseHelper *sharedInstance = nil;
-static sqlite3 *database         = nil;
-static sqlite3_stmt *statement   = nil;
+static sqlite3      *database                  = nil;
+static sqlite3_stmt *statement                 = nil;
 
 @implementation NSObject_DatabaseHelper
 
@@ -99,28 +99,28 @@ static sqlite3_stmt *statement   = nil;
                     
                     if (sqlite3_step(statement) == SQLITE_ROW) {
                         
-                        NSString *name       = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
+                        NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
                         [resultArray addObject:name];
                         
-                        NSString *latitude   = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
+                        NSString *latitude  = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
                         [resultArray addObject:latitude];
                         
-                        NSString *longitude  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 2)];
+                        NSString *longitude = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 2)];
                         [resultArray addObject:longitude];
                         
-                        NSString *likes      = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 3)];
+                        NSString *likes     = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 3)];
                         [resultArray addObject:likes];
                         
-                        NSString *dislikes   = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 4)];
+                        NSString *dislikes  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 4)];
                         [resultArray addObject:dislikes];
                         
-                        NSString *freepita   = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 5)];
+                        NSString *freepita  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 5)];
                         [resultArray addObject:freepita];
                         
                         NSString *drinkincluded = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 6)];
                         [resultArray addObject:drinkincluded];
                         
-                        NSString *greensauce = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
+                        NSString *greensauce    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
                         [resultArray addObject:greensauce];
                         
                         return resultArray;
