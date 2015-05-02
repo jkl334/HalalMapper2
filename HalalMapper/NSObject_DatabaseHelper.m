@@ -27,22 +27,19 @@ static sqlite3_stmt *statement   = nil;
 - (BOOL) createDB {
     NSString *docsDir;
     NSArray  *dirPaths;
-    
     // Get the documents directory
     dirPaths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir  = dirPaths[0];
-    
     // Build the path to the database file
     databasePath           = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"carts.db"]];
     BOOL isSuccess         = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
-    
     if ([filemgr fileExistsAtPath: databasePath ] == NO) {
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
             char *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS carts (cartid integer, primary key, name text, latitude num, longitude num, likes int, dislikes int, freepita text, drinkincluded text, greensauce text)";
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS carts (cartid integer primary key, name text, latitude num, longitude num, likes int, dislikes int, freepita text, drinkincluded text, greensauce text)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
                 isSuccess = NO;
                 NSLog(@"Failed to create table");

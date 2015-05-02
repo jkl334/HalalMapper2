@@ -28,7 +28,7 @@ nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+    
     }
     return self;
 }
@@ -36,16 +36,18 @@ nibBundleOrNil
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
+    [cartsData saveData:@"1"
+                   name:@"W4th and Greene"
+               latitude:@"40.729065"
+              longitude:@"-73.995667"
+                  likes:@"20"
+               dislikes:@"3"
+               freepita:@"YES"
+          drinkincluded:@"YES"
+             greensauce:@"NO" ];
     
-   NSObject_DatabaseHelper *dataManager = [[NSObject_DatabaseHelper alloc] init];
-    
-//    [DBManager getSharedInstance]saveData:
-//    regNoTextField.text name:nameTextField.text department:
-//    departmentTextField.text year:yearTextField.text];
-    
-    BOOL yesss;
-    [[NSObject_DatabaseHelper getSharedInstance] createDB];
-    [[NSObject_DatabaseHelper getSharedInstance]saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
    /*
     //pushing placeholder data
     [dataManager saveData:@"1" name:@"W4th and Greene" latitude:@"40.729065" longitude:@"-73.995667" likes:@"20" dislikes:@"3" freepita:@"YES" drinkincluded:@"YES" greensauce:@"NO"];
@@ -67,7 +69,7 @@ nibBundleOrNil
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_  = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.myLocationEnabled = YES;
     self.view = mapView_;
     
@@ -79,10 +81,10 @@ nibBundleOrNil
     marker.map        = mapView_;
     
   
-    NSArray *dankness = [[NSObject_DatabaseHelper getSharedInstance] findByCartId:@"1"];
+    NSArray *dankness = [cartsData findByCartId:@"1"];
     NSLog(@"AOSDOASD");
-    NSLog([[dankness objectAtIndex:0] stringValue]);
-    
+    NSString *shit = [[dankness objectAtIndex:1] stringValue];
+    NSLog(@"%@", shit);
     
     float latitude1  = [dankness[2] integerValue];
     float longitude2 = [dankness[3] integerValue];
