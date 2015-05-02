@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "DataViewController.h"
 
 
 @interface ViewController ()
@@ -30,7 +31,6 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -39,11 +39,9 @@
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
     mapView_  = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.delegate = self;
+    mapView_.delegate          = self;
     mapView_.myLocationEnabled = YES;
     self.view = mapView_;
-    
-    
     
     // Creates a marker in the center of the map.
     UIImage *youAreHere = [UIImage imageNamed:@"man"];
@@ -69,16 +67,14 @@
         marker.map        = mapView_;
         [cartsList setObject: halalCart forKey:marker];
     }
-    
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    NSObject_DatabaseHelper *data = [NSObject_DatabaseHelper getSharedInstance];
-    [data findByName: [NSString stringWithFormat:@"%@", marker.title]];
-    
-    
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
+    [self presentViewController:dataViewController animated:YES completion:nil];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
