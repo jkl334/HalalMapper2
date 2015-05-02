@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F0D4E4456818770B9AEB618D86AF56A4F2C193E1</key>
-		<string>github.com:jkl334/HalalMapper2.git</string>
+		<string>https://github.com/jkl334/HalalMapper2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>HalalMapper.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:jkl334/HalalMapper2.git</string>
+	<string>https://github.com/jkl334/HalalMapper2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>F0D4E4456818770B9AEB618D86AF56A4F2C193E1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>HalalMapper</string>
+			<string>HalalMapper2</string>
 		</dict>
 	</array>
 </dict>

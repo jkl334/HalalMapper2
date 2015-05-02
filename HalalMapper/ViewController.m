@@ -55,6 +55,35 @@
     marker.map        = mapView_;
     
   
+    //pulling carts from database and populating map with markers
+    
+    NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
+    NSMutableDictionary *cartsList = [[NSMutableDictionary alloc] init];
+    
+    for (int i = 1; i < 15; i++) {
+        NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
+        [cartArray insertObject:cartDataRow atIndex: i-1];
+    }
+    
+    
+    
+    /*
+     storeMarkerMap = [[NSDictionary alloc] init];
+     
+     for(StoreInfo *info in storesArray){
+     
+     CLLocationCoordinate2D pos = CLLocationCoordinate2DMake(info.lat,info.lng);
+     GMSMarker *marker = [GMSMarker markerWithPosition:pos];
+     marker.title = info.name;
+     marker.snippet = info.type;
+     marker.icon =[self iconSelector: info];
+     marker.map = mapView_;
+     [storeMarkerMap setObject:info forKey:marker];
+     }
+     
+     */
+    
+    
     NSArray  *cartDataRow = [cartsData findByCartId:@"1"];
     NSString *cartName    = [cartDataRow objectAtIndex:0];
     NSLog(@"%@", cartName);
@@ -66,6 +95,10 @@
     cart1.title      = cartName;
     cart1.snippet    = [ NSString stringWithFormat:@"Likes = %@. Dislikes = %@", [cartDataRow objectAtIndex:3], [cartDataRow objectAtIndex:4] ];
     cart1.map        = mapView_;
+    
+    
+    //END - populating markers on map
+
     
     
 }
