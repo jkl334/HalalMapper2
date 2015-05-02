@@ -82,7 +82,57 @@ static sqlite3_stmt *statement                 = nil;
     }
     return NO;
 }
-                                
+
+
+
+- (NSArray*) findByName:(NSString*) name {
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM cartsTable WHERE name=\"%@\"",name];
+        
+        const char *query_stmt      = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        
+        if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+            
+            if (sqlite3_step(statement) == SQLITE_ROW) {
+                
+                NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
+                [resultArray addObject:name];
+                
+                NSString *latitude  = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
+                [resultArray addObject:latitude];
+                
+                NSString *longitude = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 2)];
+                [resultArray addObject:longitude];
+                
+                NSString *likes     = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 3)];
+                [resultArray addObject:likes];
+                
+                NSString *dislikes  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 4)];
+                [resultArray addObject:dislikes];
+                
+                NSString *freepita  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 5)];
+                [resultArray addObject:freepita];
+                
+                NSString *drinkincluded = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 6)];
+                [resultArray addObject:drinkincluded];
+                
+                NSString *greensauce    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
+                [resultArray addObject:greensauce];
+                
+                return resultArray;
+            }
+            else {
+                NSLog(@"Not found");
+                return nil;
+            }
+            sqlite3_reset(statement);
+        }
+    }
+    return nil;
+}
+
 - (NSArray*) findByCartId:(NSString*) cartid {
             const char *dbpath = [databasePath UTF8String];
             if (sqlite3_open(dbpath, &database) == SQLITE_OK) {

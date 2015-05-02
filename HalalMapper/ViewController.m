@@ -39,6 +39,7 @@
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
     mapView_  = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView_.delegate = self;
     mapView_.myLocationEnabled = YES;
     self.view = mapView_;
     
@@ -70,6 +71,15 @@
     }
     
 }
+
+- (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    NSObject_DatabaseHelper *data = [NSObject_DatabaseHelper getSharedInstance];
+    [data findByName: [NSString stringWithFormat:@"%@", marker.title]];
+
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
