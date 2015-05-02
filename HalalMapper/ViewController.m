@@ -53,16 +53,15 @@
     marker.snippet    = @"Hungry for Halal";
     marker.map        = mapView_;
     
-  
-    //pulling carts from database and populating map with markers
-    
-    NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
+    // Array of records from DB
+    NSMutableArray      *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
+    // Dictionary. Key = Marker. Value = Record from array
     NSMutableDictionary *cartsList = [[NSMutableDictionary alloc] init];
-    
     for (int i = 1; i < 15; i++) {
         NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
         [cartArray insertObject:cartDataRow atIndex: i-1];
     }
+    
     
     
     
@@ -104,7 +103,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
