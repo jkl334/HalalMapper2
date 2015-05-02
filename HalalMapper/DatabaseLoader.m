@@ -14,7 +14,7 @@
     
     NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
     
-    [cartsData saveData:@"1"
+    [cartsData saveData:@"0"
                    name:@"W4th and Greene"
                latitude:@"40.729065"
               longitude:@"-73.995667"
@@ -24,7 +24,7 @@
           drinkincluded:@"YES"
              greensauce:@"NO" ];
     
-    [cartsData saveData:@"3"
+    [cartsData saveData:@"1"
                    name:@"W Houston and Broadway"
                latitude:@"40.725374"
               longitude:@"-73.996959"
@@ -34,7 +34,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"4"
+    [cartsData saveData:@"2"
                    name:@"Broadway and Astor"
                latitude:@"40.729864"
               longitude:@"-73.992898"
@@ -44,7 +44,7 @@
           drinkincluded:@"NO"
              greensauce:@"NO"];
     
-    [cartsData saveData:@"5"
+    [cartsData saveData:@"3"
                    name:@"Rafiqis E8th and Broadway"
                latitude:@"40.730693"
               longitude:@"-73.992190"
@@ -54,7 +54,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"6"
+    [cartsData saveData:@"4"
                    name:@"E14th and 3rd Ave"
                latitude:@"40.733265"
               longitude:@"-73.987513"
@@ -64,7 +64,7 @@
           drinkincluded:@"YES"
              greensauce:@"NO"];
     
-    [cartsData saveData:@"7"
+    [cartsData saveData:@"5"
                    name:@"E14th and 4th Ave"
                latitude:@"40.734403"
               longitude:@"-73.989551"
@@ -74,7 +74,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"8"
+    [cartsData saveData:@"6"
                    name:@"3rd St and 6th Ave"
                latitude:@"40.731021"
               longitude:@"-74.001374"
@@ -84,7 +84,7 @@
           drinkincluded:@"NO"
              greensauce:@"NO"];
     
-    [cartsData saveData:@"9"
+    [cartsData saveData:@"7"
                    name:@"Bleeker and Macdougal"
                latitude:@"40.732842"
               longitude:@"-74.000044"
@@ -94,7 +94,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"10"
+    [cartsData saveData:@"8"
                    name:@"Waverly and 6th Ave"
                latitude:@"40.729065"
               longitude:@"-73.995667"
@@ -104,7 +104,7 @@
           drinkincluded:@"YES"
              greensauce:@"NO"];
     
-    [cartsData saveData:@"11"
+    [cartsData saveData:@"9"
                    name:@"13th St and 5th Ave"
                latitude:@"40.735314"
               longitude:@"-73.994079"
@@ -114,7 +114,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"12"
+    [cartsData saveData:@"10"
                    name:@"Morton and Bedford"
                latitude:@"40.731005"
               longitude:@"-74.004679"
@@ -124,7 +124,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"13"
+    [cartsData saveData:@"11"
                    name:@"Macdougal and Houston"
                latitude:@"40.728091"
               longitude:@"-74.002115"
@@ -134,7 +134,7 @@
           drinkincluded:@"YES"
              greensauce:@"YES"];
     
-    [cartsData saveData:@"14"
+    [cartsData saveData:@"12"
                    name:@"Bleeker and Christopher"
                latitude:@"40.733351"
               longitude:@"-74.004228"
@@ -143,12 +143,33 @@
                freepita:@"NO"
           drinkincluded:@"YES"
              greensauce:@"NO"];
+    
+    [cartsData saveData:@"13"
+                   name:@"W4th and Washington Square East"
+               latitude:@"40.729224"
+              longitude:@"-73.996010"
+                  likes:@"13"
+               dislikes:@"18"
+               freepita:@"YES"
+          drinkincluded:@"YES"
+             greensauce:@"NO"];
+    
+    
 }
 
-+ (NSObject_DatabaseHelper *) getDatabase {
++ (NSMutableArray *) getArrayOfCarts {
     
     NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
-    return cartsData;
+    
+    // Array of records from DB
+    NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
+
+    for (int i = 0; i < 13; i++) {
+        NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
+        [cartArray insertObject:cartDataRow atIndex: i];
+    }
+    
+    return cartArray;
 }
 
 @end

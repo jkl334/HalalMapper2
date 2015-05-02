@@ -34,8 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Get the database
-    NSObject_DatabaseHelper *cartsData = [DatabaseLoader getDatabase];
+    // 2-D array of carts
+    NSMutableArray *cartArray = [DatabaseLoader getArrayOfCarts];
 
     // Initialize the map view on Courant
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
@@ -53,16 +53,11 @@
     marker.snippet    = @"Hungry for Halal";
     marker.map        = mapView_;
     
-    // Array of records from DB
-    NSMutableArray      *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
     // Dictionary. Key = Marker. Value = Record from array
     NSMutableDictionary *cartsList = [[NSMutableDictionary alloc] init];
-    for (int i = 1; i < 15; i++) {
-        NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
-        [cartArray insertObject:cartDataRow atIndex: i-1];
-    }
     
     
+    // init dictionary of markers
     for (NSArray *halalCart in cartArray) {
         CLLocationCoordinate2D location = CLLocationCoordinate2DMake([halalCart[1] floatValue], [halalCart[2] floatValue]);
         GMSMarker *marker = [GMSMarker markerWithPosition:location];
@@ -71,41 +66,7 @@
         marker.map = mapView_;
         [cartsList setObject: halalCart forKey:marker];
     }
-    
-    
-    
-    
-    
-    /*
-     storeMarkerMap = [[NSDictionary alloc] init];
-     
-     for(StoreInfo *info in storesArray){
-     
-     CLLocationCoordinate2D pos = CLLocationCoordinate2DMake(info.lat,info.lng);
-     GMSMarker *marker = [GMSMarker markerWithPosition:pos];
-     marker.title = info.name;
-     marker.snippet = info.type;
-     marker.icon =[self iconSelector: info];
-     marker.map = mapView_;
-     [storeMarkerMap setObject:info forKey:marker];
-     }
-     
-     */
-    
-    
-    NSArray  *cartDataRow = [cartsData findByCartId:@"1"];
-    NSString *cartName    = [cartDataRow objectAtIndex:0];
-    NSLog(@"%@", cartName);
-    
-    float latitude   = [cartDataRow[1] floatValue];
-    float longitude  = [cartDataRow[2] floatValue];
-    GMSMarker *cart1 = [[GMSMarker alloc] init];
-    cart1.position   = CLLocationCoordinate2DMake(latitude, longitude);
-    cart1.title      = cartName;
-    cart1.snippet    = [ NSString stringWithFormat:@"Likes = %@. Dislikes = %@", [cartDataRow objectAtIndex:3], [cartDataRow objectAtIndex:4] ];
-    cart1.map        = mapView_;
-    
-    
+        
     //END - populating markers on map
 
     

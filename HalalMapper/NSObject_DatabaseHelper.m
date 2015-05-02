@@ -27,7 +27,6 @@ static sqlite3_stmt *statement                 = nil;
 - (BOOL) createDB {
     NSString *docsDir;
     NSArray  *dirPaths;
-    NSLog(@"init");
     // Get the documents directory
     dirPaths = NSSearchPathForDirectoriesInDomains
     (NSDocumentDirectory, NSUserDomainMask, YES);
@@ -68,7 +67,6 @@ static sqlite3_stmt *statement                 = nil;
        greensauce:(NSString*)greensauce    {
     
     const char *dbpath = [databasePath UTF8String];
-    NSLog(@"%s", dbpath);
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO cartsTable (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", [cartid integerValue], name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce];
         const char *insert_stmt = [insertSQL UTF8String];
