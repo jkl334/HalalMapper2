@@ -18,6 +18,7 @@
 		72CF2CCD1AEE9A54003F3322 /* HalalMapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF2CCC1AEE9A54003F3322 /* HalalMapperTests.m */; };
 		72CF2CD71AEE9C68003F3322 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD61AEE9C68003F3322 /* MapKit.framework */; };
 		72CF2CD91AEE9CBA003F3322 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */; };
+		72E08E3C1AF542570049BC80 /* DatabaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E08E3B1AF542570049BC80 /* DatabaseLoader.m */; };
 		CEE47DDC1AF12AF0009D6C49 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEE47DDB1AF12AF0009D6C49 /* GoogleMaps.bundle */; };
 		CEE47DDE1AF12B1E009D6C49 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DDD1AF12B1E009D6C49 /* AVFoundation.framework */; };
 		CEE47DE01AF12B3D009D6C49 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DDF1AF12B3D009D6C49 /* CoreData.framework */; };
@@ -66,6 +67,8 @@
 		72CF2CCC1AEE9A54003F3322 /* HalalMapperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HalalMapperTests.m; sourceTree = "<group>"; };
 		72CF2CD61AEE9C68003F3322 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		72CF2CD81AEE9CBA003F3322 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		72E08E3A1AF542570049BC80 /* DatabaseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseLoader.h; sourceTree = "<group>"; };
+		72E08E3B1AF542570049BC80 /* DatabaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseLoader.m; sourceTree = "<group>"; };
 		CEE47DD91AF1277D009D6C49 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "../../../../Downloads/GoogleMaps-iOS-1.9.2/GoogleMaps.framework"; sourceTree = "<group>"; };
 		CEE47DDB1AF12AF0009D6C49 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		CEE47DDD1AF12B1E009D6C49 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -159,14 +162,16 @@
 			children = (
 				72CF2CB41AEE9A53003F3322 /* AppDelegate.h */,
 				72CF2CB51AEE9A53003F3322 /* AppDelegate.m */,
-				CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */,
-				CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */,
 				72B1178E1AF173EC0043E8BD /* DataViewController.h */,
 				72B1178F1AF173EC0043E8BD /* DataViewController.m */,
 				72B117911AF17BAA0043E8BD /* FavoritesViewController.h */,
 				72B117921AF17BAA0043E8BD /* FavoritesViewController.m */,
 				72CF2CB71AEE9A53003F3322 /* ViewController.h */,
 				72CF2CB81AEE9A53003F3322 /* ViewController.m */,
+				72E08E3A1AF542570049BC80 /* DatabaseLoader.h */,
+				72E08E3B1AF542570049BC80 /* DatabaseLoader.m */,
+				CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */,
+				CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */,
 				72CF2CBA1AEE9A53003F3322 /* Main.storyboard */,
 				72CF2CBD1AEE9A53003F3322 /* Images.xcassets */,
 				72CF2CBF1AEE9A53003F3322 /* LaunchScreen.xib */,
@@ -305,6 +310,7 @@
 				CEE47DFA1AF45FBA009D6C49 /* NSObject_DatabaseHelper.m in Sources */,
 				72B117931AF17BAA0043E8BD /* FavoritesViewController.m in Sources */,
 				72B117901AF173EC0043E8BD /* DataViewController.m in Sources */,
+				72E08E3C1AF542570049BC80 /* DatabaseLoader.m in Sources */,
 				72CF2CB91AEE9A53003F3322 /* ViewController.m in Sources */,
 				72CF2CB61AEE9A53003F3322 /* AppDelegate.m in Sources */,
 				72CF2CB31AEE9A53003F3322 /* main.m in Sources */,

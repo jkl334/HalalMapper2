@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:@"AIzaSyBOdYQ9-hrn_JrTZAOXPFr8wqA2PfYMGqI"];
+    [DatabaseLoader createDatabaseAndLoad];
     return YES;
 }
 

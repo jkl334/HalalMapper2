@@ -75,11 +75,9 @@ static sqlite3_stmt *statement                 = nil;
         
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Inserted");
             return YES;
         }
         else {
-            NSLog(@"Not inserted");
             return NO;
         }
         sqlite3_reset(statement);
