@@ -39,10 +39,6 @@ NSArray *currentCart;
 - (IBAction)favoriteThisCart:(id)sender {
     FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
     [favorites saveData: currentCart[0]];
-    NSString *poo = [favorites findByName: currentCart[0]];
-    NSLog(@"%@", poo);
-
-    
 }
 
 @end

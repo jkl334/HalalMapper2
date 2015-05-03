@@ -18,7 +18,6 @@ static sqlite3_stmt *statement                 = nil;
 
 + (FavoritesDatabaseHelper*) getSharedInstance {
     if (!sharedInstance) {
-        NSLog(@"creating shared instance");
         sharedInstance = [[super allocWithZone:NULL]init];
         [sharedInstance createDB];
     }
@@ -47,16 +46,14 @@ static sqlite3_stmt *statement                 = nil;
                 NSLog(@"Failed to create table");
             }
             sqlite3_close(database);
-            NSLog(@"isSuccess 1");
             return isSuccess;
         }
         else {
-            NSAssert1(0, @"Error creating. '%s'", sqlite3_errmsg(database));
+            // NSAssert1(0, @"Error creating. '%s'", sqlite3_errmsg(database));
             isSuccess = NO;
             NSLog(@"Failed to open/create database");
         }
     }
-    NSLog(@"isSuccess 2");
     sqlite3_close(database);
     return isSuccess;
 }
@@ -72,13 +69,10 @@ static sqlite3_stmt *statement                 = nil;
         
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Insert Success");
-     
             boolValue = YES;
         }
         else {
-            NSLog(@"Insert Fail");
-             NSAssert1(0, @"Error while inserting data. '%s'", sqlite3_errmsg(database));
+            NSAssert1(0, @"Error while inserting data. '%s'", sqlite3_errmsg(database));
             boolValue = NO;
         }
     }
