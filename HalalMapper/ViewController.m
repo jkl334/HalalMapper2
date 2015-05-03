@@ -94,8 +94,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToFavorite"]) {
-       // REMEMBER TO IMPORT THIS .H FILE
-        // Get faves and pass into tableView
+       
         //FavoriteViewControllerWhatever *destination = segue.destinationViewController;
         //destination.theArrayOfFavoritesData = myArray;
     }
