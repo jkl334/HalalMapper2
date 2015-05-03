@@ -72,18 +72,18 @@ static sqlite3_stmt *statement                 = nil;
         
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
-            NSLog(@"Yes");
+            NSLog(@"Insert Success");
+     
             boolValue = YES;
         }
         else {
+            NSLog(@"Insert Fail");
              NSAssert1(0, @"Error while inserting data. '%s'", sqlite3_errmsg(database));
-             NSLog(@"No");
             boolValue = NO;
         }
-        sqlite3_reset(statement);
     }
+    sqlite3_reset(statement);
     sqlite3_finalize(statement);
-    NSLog(@"finalized");
     sqlite3_close(database);
     return boolValue;
 }
@@ -133,14 +133,17 @@ static sqlite3_stmt *statement                 = nil;
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 
                 NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
-                
+                sqlite3_finalize(statement);
+                sqlite3_close(database);
                 return name;
             }
             else {
                 NSLog(@"Not found");
+                sqlite3_finalize(statement);
+                sqlite3_close(database);
                 return nil;
             }
-            sqlite3_reset(statement);
+//            sqlite3_reset(statement);
         }
     }
     return nil;
@@ -160,15 +163,18 @@ static sqlite3_stmt *statement                 = nil;
                 
                 NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
                 [resultArray addObject:name];
-                
+                sqlite3_finalize(statement);
+                sqlite3_close(database);
                 return resultArray;
             }
         }
             else {
+                sqlite3_finalize(statement);
+                sqlite3_close(database);
                 NSLog(@"Not found");
                 return nil;
             }
-            sqlite3_reset(statement);
+//            sqlite3_reset(statement);
         
     }
     return nil;
