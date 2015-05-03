@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DatabaseLoader.h"
+#import "DataViewController.h"
 
 @interface FavoriteViewControllerTableViewController : UITableViewController
 

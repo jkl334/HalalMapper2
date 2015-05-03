@@ -22,7 +22,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
 
 #pragma mark - Table view data source
@@ -31,26 +30,37 @@
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 7;
     return self.favoriteData.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell           = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
  
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
- 
     cell.textLabel.text = [self.favoriteData objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    NSObject_DatabaseHelper *database = [DatabaseLoader getDatabase];
+    NSArray *cartDataToPush           = [database findByName:[self.favoriteData objectAtIndex:indexPath.row]];
+    
+    // Prepare dataViewController to push
+    UIStoryboard       *storyboard         = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
+    // Set current Cart in dataView
+    [dataViewController setCurrentCart:cartDataToPush];
+    [self.navigationController pushViewController:dataViewController animated:YES];
 }
 
 
