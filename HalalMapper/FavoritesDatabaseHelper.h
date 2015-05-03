@@ -19,6 +19,8 @@
 
 - (BOOL) saveData:(NSArray*)cartData;
 
+- (int) getCount;
+
 - (NSArray*) findByName:(NSString*)name;
 
 @end
