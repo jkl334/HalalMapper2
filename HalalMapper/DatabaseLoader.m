@@ -154,6 +154,105 @@
           drinkincluded:@"YES"
              greensauce:@"NO"];
     
+    [cartsData saveData:@"14"
+                   name:@"Halal Guys 53rd and 6th Ave"
+               latitude:@"40.761941"
+              longitude:@"-73.979230"
+                  likes:@"79"
+               dislikes:@"2"
+               freepita:@"YES"
+          drinkincluded:@"NO"
+             greensauce:@"NO"];
+    
+    [cartsData saveData:@"15"
+                   name:@"Halal Guys 52nd and 6th Ave"
+               latitude:@"40.761307"
+              longitude:@"-73.979745"
+                  likes:@"69"
+               dislikes:@"5"
+               freepita:@"YES"
+          drinkincluded:@"NO"
+             greensauce:@"NO"];
+    
+    [cartsData saveData:@"16"
+                   name:@"W45th St and 10th Ave"
+               latitude:@"40.761645"
+              longitude:@"-73.993853"
+                  likes:@"6"
+               dislikes:@"19"
+               freepita:@"NO"
+          drinkincluded:@"YES"
+             greensauce:@"YES"];
+    
+    [cartsData saveData:@"17"
+                   name:@"Lorimer St and Grand St"
+               latitude:@"40.711343"
+              longitude:@"-73.948481"
+                  likes:@"4"
+               dislikes:@"1"
+               freepita:@"YES"
+          drinkincluded:@"YES"
+             greensauce:@"YES"];
+    
+    [cartsData saveData:@"18"
+                   name:@"Havemeyer St and Metropolitan Ave"
+               latitude:@"40.714228"
+              longitude:@"-73.955326"
+                  likes:@"46"
+               dislikes:@"79"
+               freepita:@"YES"
+          drinkincluded:@"YES"
+             greensauce:@"YES"];
+    
+    [cartsData saveData:@"19"
+                   name:@"Hewes St and Broadway"
+               latitude:@"40.706594"
+              longitude:@"-73.952258"
+                  likes:@"23"
+               dislikes:@"28"
+               freepita:@"YES"
+          drinkincluded:@"NO"
+             greensauce:@"NO"];
+    
+    [cartsData saveData:@"20"
+                   name:@"Fulton St and Broadway"
+               latitude:@"40.709261"
+              longitude:@"-74.010537"
+                  likes:@"55"
+               dislikes:@"34"
+               freepita:@"NO"
+          drinkincluded:@"YES"
+             greensauce:@"NO"];
+    
+    [cartsData saveData:@"21"
+                   name:@"E 1st St and 2nd Ave"
+               latitude:@"40.724452"
+              longitude:@"-73.990903"
+                  likes:@"78"
+               dislikes:@"22"
+               freepita:@"YES"
+          drinkincluded:@"YES"
+             greensauce:@"YES"];
+    
+    [cartsData saveData:@"22"
+                   name:@"Jay St Metrotech"
+               latitude:@"40.692327"
+              longitude:@"-73.985431"
+                  likes:@"63"
+               dislikes:@"11"
+               freepita:@"YES"
+          drinkincluded:@"NO"
+             greensauce:@"NO"];
+    
+    [cartsData saveData:@"23"
+                   name:@"E 14th St and Ave A"
+               latitude:@"40.730241"
+              longitude:@"-73.980238"
+                  likes:@"33"
+               dislikes:@"28"
+               freepita:@"NO"
+          drinkincluded:@"NO"
+             greensauce:@"NO"];
     
 }
 
@@ -168,8 +267,8 @@
     NSObject_DatabaseHelper *cartsData = [NSObject_DatabaseHelper getSharedInstance];
     
     // Array of records from DB
-    NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 14];
-    for (int i = 0; i < 13; i++) {
+    NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity: 24];
+    for (int i = 0; i < 24; i++) {
         NSArray *cartDataRow = [cartsData findByCartId:[NSString stringWithFormat:@"%i", i]];
         [cartArray insertObject:cartDataRow atIndex: i];
     }

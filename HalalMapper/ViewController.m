@@ -66,7 +66,6 @@
         CLLocationCoordinate2D location = CLLocationCoordinate2DMake([halalCart[1] floatValue], [halalCart[2] floatValue]);
         GMSMarker *marker = [GMSMarker markerWithPosition:location];
         marker.title      = halalCart[0];
-        marker.snippet    = [NSString stringWithFormat:@"Likes = %@. Dislikes = %@", halalCart[3], halalCart[4]];
         marker.icon       = cartIcon;
         marker.map        = mapView_;
         [cartsList setObject: halalCart forKey:marker];
@@ -97,12 +96,6 @@
 
         FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
         NSMutableArray *favoriteItems      = [favorites getAll];
-        
-        for (int i = 0 ; i < [favoriteItems count]; i++) {
-            NSLog(@"%@", favoriteItems[i]);
-        }
-        
-        
         FavoriteViewControllerTableViewController *destination = segue.destinationViewController;
         destination.favoriteData = favoriteItems;
         
