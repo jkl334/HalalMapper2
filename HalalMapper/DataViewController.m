@@ -37,7 +37,8 @@ NSArray *currentCart;
 }
 
 - (IBAction)favoriteThisCart:(id)sender {
-    
+    FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
+    [favorites saveData: currentCart];
 }
 
 @end
