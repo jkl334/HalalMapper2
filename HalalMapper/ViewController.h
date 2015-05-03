@@ -12,6 +12,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "DatabaseLoader.h"
 #import "NSObject_DatabaseHelper.h"
+#import "FavoritesDatabaseHelper.h"
+#import "FavoriteViewControllerTableViewController.h"
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate, GMSMapViewDelegate>
 
