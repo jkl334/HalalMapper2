@@ -39,7 +39,7 @@ NSArray *currentCart;
 - (IBAction)favoriteThisCart:(id)sender {
     FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
     NSLog(@"shitty");
-    [favorites saveData: currentCart];
+    [favorites saveData: currentCart[0]];
     NSLog(@"hey fuckhead");
     NSArray *poo = [favorites findByName: currentCart[0]];
 //    for (int i = 0; [poo count] - 1; i++) {

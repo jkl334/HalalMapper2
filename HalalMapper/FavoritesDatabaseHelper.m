@@ -40,7 +40,7 @@ static sqlite3_stmt *statement                 = nil;
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
             char       *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS favorites (name text, latitude text, longitude text, likes text, dislikes text, freepita text, drinkincluded text, greensauce text)";
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS favorites (name text)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
                 isSuccess = NO;
                 NSLog(@"Failed to create table");
@@ -57,11 +57,11 @@ static sqlite3_stmt *statement                 = nil;
 }
 
 
-- (BOOL) saveData:(NSArray*)cartData {
+- (BOOL) saveData:(NSString*)name {
     
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO favorites (name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", cartData[0], cartData[1], cartData[2], cartData[3], cartData[4], cartData[5], cartData[6], cartData[7]];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO favorites (name) values (\"%@\")", name];
         NSLog(@"%@", insertSQL);
         const char *insert_stmt = [insertSQL UTF8String];
         
@@ -110,43 +110,21 @@ static sqlite3_stmt *statement                 = nil;
     return count;
 }
 
-- (NSArray*) findByName:(NSString*) name {
+- (NSString*) findByName:(NSString*) name {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM favorites WHERE name=\"%@\"",name];
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT name FROM favorites WHERE name=\"%@\"",name];
         
         const char *query_stmt      = [querySQL UTF8String];
-        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        
         
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             
             if (sqlite3_step(statement) == SQLITE_ROW) {
                 
                 NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
-                [resultArray addObject:name];
                 
-                NSString *latitude  = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 1)];
-                [resultArray addObject:latitude];
-                
-                NSString *longitude = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 2)];
-                [resultArray addObject:longitude];
-                
-                NSString *likes     = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 3)];
-                [resultArray addObject:likes];
-                
-                NSString *dislikes  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 4)];
-                [resultArray addObject:dislikes];
-                
-                NSString *freepita  = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 5)];
-                [resultArray addObject:freepita];
-                
-                NSString *drinkincluded = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 6)];
-                [resultArray addObject:drinkincluded];
-                
-                NSString *greensauce    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
-                [resultArray addObject:greensauce];
-                
-                return resultArray;
+                return name;
             }
             else {
                 NSLog(@"Not found");
