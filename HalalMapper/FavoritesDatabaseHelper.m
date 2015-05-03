@@ -94,29 +94,23 @@ static sqlite3_stmt *statement                 = nil;
     NSLog(@"getting count favorite db");
     const char *dbpath = [databasePath UTF8String];
     int count = 0;
-    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
-    {
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         const char* sqlStatement = "SELECT COUNT(*) FROM favorites";
         sqlite3_stmt *statement;
         
-        if( sqlite3_prepare_v2(database, sqlStatement, -1, &statement, NULL) == SQLITE_OK )
-        {
+        if (sqlite3_prepare_v2(database, sqlStatement, -1, &statement, NULL) == SQLITE_OK ) {
             //Loop through all the returned rows (should be just one)
-            while( sqlite3_step(statement) == SQLITE_ROW )
-            {
+            while( sqlite3_step(statement) == SQLITE_ROW ) {
                 count = sqlite3_column_int(statement, 0);
             }
         }
-        else
-        {
-            NSLog( @"Failed from sqlite3_prepare_v2. Error is:  %s", sqlite3_errmsg(database) );
+        else {
+            NSLog( @"Failed from sqlite3_prepare_v2. Error is:  %s", sqlite3_errmsg(database));
         }
-        
-        // Finalize and close database.
-        sqlite3_finalize(statement);
-        sqlite3_close(database);
     }
-    
+    // Finalize and close database.
+    sqlite3_finalize(statement);
+    sqlite3_close(database);
     return count;
 }
 
@@ -149,33 +143,33 @@ static sqlite3_stmt *statement                 = nil;
     return nil;
 }
 
-- (NSMutableArray*) getAll {
+- (NSMutableArray *) getAll {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat: @"SELECT name FROM favorites"];
         
         const char *query_stmt      = [querySQL UTF8String];
-        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        NSMutableArray *resultArray = [[NSMutableArray alloc] init];
         
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 
-                NSString *name      = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
+                NSString *name  = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
                 [resultArray addObject:name];
-                sqlite3_finalize(statement);
-                sqlite3_close(database);
-                return resultArray;
             }
+            sqlite3_reset(statement);
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            return resultArray;
         }
-            else {
-                sqlite3_finalize(statement);
-                sqlite3_close(database);
-                NSLog(@"Not found");
-                return nil;
-            }
-//            sqlite3_reset(statement);
-        
+        else {
+            sqlite3_reset(statement);
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+            NSLog(@"Not found");
+            return nil;
+        }
     }
     return nil;
 }

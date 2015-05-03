@@ -74,7 +74,6 @@ static sqlite3_stmt *statement                 = nil;
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
             sqlite3_finalize(statement);
-            NSLog(@"finalizeds");
             sqlite3_close(database);
             return YES;
         }

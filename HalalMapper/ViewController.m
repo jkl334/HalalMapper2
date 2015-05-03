@@ -98,6 +98,10 @@
         FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
         NSMutableArray *favoriteItems      = [favorites getAll];
         
+        for (int i = 0 ; i < [favoriteItems count]; i++) {
+            NSLog(@"%@", favoriteItems[i]);
+        }
+        
         
         FavoriteViewControllerTableViewController *destination = segue.destinationViewController;
         destination.favoriteData = favoriteItems;
