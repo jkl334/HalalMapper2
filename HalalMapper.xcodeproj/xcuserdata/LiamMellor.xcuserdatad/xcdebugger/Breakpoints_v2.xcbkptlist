@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HalalMapper/FavoritesDatabaseHelper.m"
-            timestampString = "452312740.647194"
+            timestampString = "452378520.09285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-getAll"
             landmarkType = "5">
          </BreakpointContent>

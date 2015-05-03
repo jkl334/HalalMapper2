@@ -18,6 +18,7 @@ static sqlite3_stmt *statement                 = nil;
 
 + (FavoritesDatabaseHelper*) getSharedInstance {
     if (!sharedInstance) {
+        NSLog(@"creating shared instance");
         sharedInstance = [[super allocWithZone:NULL]init];
         [sharedInstance createDB];
     }
@@ -33,7 +34,7 @@ static sqlite3_stmt *statement                 = nil;
     (NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir  = dirPaths[0];
     // Build the path to the database file
-    databasePath           = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"carts.db"]];
+    databasePath           = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"favorites.db"]];     // originally carts.db
     BOOL isSuccess         = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
     if ([filemgr fileExistsAtPath: databasePath ] == NO) {
@@ -46,42 +47,51 @@ static sqlite3_stmt *statement                 = nil;
                 NSLog(@"Failed to create table");
             }
             sqlite3_close(database);
+            NSLog(@"isSuccess 1");
             return isSuccess;
         }
         else {
+            NSAssert1(0, @"Error creating. '%s'", sqlite3_errmsg(database));
             isSuccess = NO;
             NSLog(@"Failed to open/create database");
         }
     }
+    NSLog(@"isSuccess 2");
+    sqlite3_close(database);
     return isSuccess;
 }
 
 
 - (BOOL) saveData:(NSString*)name {
     
+    BOOL boolValue = NO;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO favorites (name) values (\"%@\")", name];
-        NSLog(@"%@", insertSQL);
+        NSString *insertSQL     = [NSString stringWithFormat:@"INSERT INTO favorites (name) values (\"%@\")", name];
         const char *insert_stmt = [insertSQL UTF8String];
         
-        sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);                 // Only saving name
+        sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
             NSLog(@"Yes");
-            return YES;
+            boolValue = YES;
         }
         else {
+             NSAssert1(0, @"Error while inserting data. '%s'", sqlite3_errmsg(database));
              NSLog(@"No");
-            return NO;
+            boolValue = NO;
         }
         sqlite3_reset(statement);
     }
-    return NO;
+    sqlite3_finalize(statement);
+    NSLog(@"finalized");
+    sqlite3_close(database);
+    return boolValue;
 }
 
 
 
 - (int) getCount {
+    NSLog(@"getting count favorite db");
     const char *dbpath = [databasePath UTF8String];
     int count = 0;
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)

@@ -38,9 +38,9 @@ NSArray *currentCart;
 
 - (IBAction)favoriteThisCart:(id)sender {
     FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
-    NSLog(@"before saveData DataViewController");
+    NSLog(@"before saveData");
     [favorites saveData: currentCart[0]];
-    NSLog(@"afterSaveData");
+    NSLog(@"after SaveData");
     NSArray *poo = [favorites findByName: currentCart[0]];
 
     
