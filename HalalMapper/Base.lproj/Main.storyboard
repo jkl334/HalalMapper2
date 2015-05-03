@@ -118,6 +118,9 @@
                                     <color key="titleColor" red="1" green="0.0024894087810000002" blue="0.0083399603320000008" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="favoriteThisCart:" destination="itU-H7-rbd" eventType="touchUpInside" id="DIK-9Z-ds4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b3e-0v-YpC">
                                 <rect key="frame" x="21" y="76" width="333" height="21"/>
@@ -137,6 +140,7 @@
                     <connections>
                         <outlet property="cartAddress" destination="b3e-0v-YpC" id="RF1-kd-0Yy"/>
                         <outlet property="drinkBool" destination="1hW-fQ-fD7" id="Nrn-Ed-XBu"/>
+                        <outlet property="favoriteButton" destination="nzA-L8-0qH" id="UKC-Vt-haN"/>
                         <outlet property="greenSauceBool" destination="YRK-6E-NkM" id="U1o-bE-MTn"/>
                         <outlet property="pitaBool" destination="D3i-b5-JaT" id="qUi-Jl-tGz"/>
                         <outlet property="thumbsDown" destination="JmU-ri-jS7" id="Lh3-p7-tIu"/>

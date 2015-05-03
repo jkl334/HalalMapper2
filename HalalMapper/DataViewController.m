@@ -7,6 +7,7 @@
 //
 
 #import "DataViewController.h"
+#import "FavoritesDatabaseHelper.h"
 
 @implementation DataViewController
 
@@ -33,6 +34,10 @@ NSArray *currentCart;
     drinkBool.text      = currentCart[5];
     pitaBool.text       = currentCart[6];
     greenSauceBool.text = currentCart[7];
+}
+
+- (IBAction)favoriteThisCart:(id)sender {
+    
 }
 
 @end
