@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *drinkBool;
 @property (weak, nonatomic) IBOutlet UILabel *pitaBool;
 @property (weak, nonatomic) IBOutlet UILabel *greenSauceBool;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 
 - (BOOL) setCurrentCart: (NSArray *) cart;
 
