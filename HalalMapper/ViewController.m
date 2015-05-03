@@ -19,9 +19,12 @@
     GMSMapView *mapView_;
 }
 
+
+// Properties
 @synthesize manager;
 @synthesize currentLocation;
 @synthesize touchMapCoordinate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *) nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,6 +41,7 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:40.7286689
                                                             longitude:-73.99566199999998
                                                                  zoom:15];
+    
     mapView_  = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView_.delegate          = self;
     mapView_.myLocationEnabled = YES;
@@ -72,27 +76,29 @@
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
     
     // Get Tapped Cart Data
-    NSObject_DatabaseHelper *dataToPush = [DatabaseLoader getDatabase];
-    NSArray *cartDataToPush             = [dataToPush findByName:marker.title];
+    NSObject_DatabaseHelper *database = [DatabaseLoader getDatabase];
+    NSArray *cartDataToPush           = [database findByName:marker.title];
     
     // Prepare dataViewController to push
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIStoryboard       *storyboard         = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DataViewController *dataViewController = (DataViewController *)[storyboard instantiateViewControllerWithIdentifier:@"dataViewController"];
-   
-    dataViewController.cartAddress.text    = cartDataToPush[0];
-    dataViewController.thumbsUp.text       = cartDataToPush[3];
-    dataViewController.thumbsDown.text     = cartDataToPush[4];
-    dataViewController.pitaBool.text       = cartDataToPush[5];
-    dataViewController.drinkBool.text      = cartDataToPush[6];
-    dataViewController.greenSauceBool.text = cartDataToPush[7];
-    
+    // Set current Cart in dataView
+    [dataViewController setCurrentCart:cartDataToPush];
     [self.navigationController pushViewController:dataViewController animated:YES];
 }
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segueToFavorite"]) {
+       // REMEMBER TO IMPORT THIS .H FILE
+        // Get faves and pass into tableView
+        //FavoriteViewControllerWhatever *destination = segue.destinationViewController;
+        //destination.theArrayOfFavoritesData = myArray;
+    }
 }
 
 

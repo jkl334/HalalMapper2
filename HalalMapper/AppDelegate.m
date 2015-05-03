@@ -21,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [GMSServices provideAPIKey:@"AIzaSyBOdYQ9-hrn_JrTZAOXPFr8wqA2PfYMGqI"];
     [DatabaseLoader createDatabaseAndLoad];
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:255 green:245 blue:18 alpha:1]];
     return YES;
 }
 

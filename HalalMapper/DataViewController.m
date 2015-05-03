@@ -17,6 +17,22 @@
 @synthesize pitaBool;
 @synthesize greenSauceBool;
 
+NSArray *currentCart;
+
+- (BOOL) setCurrentCart: (NSArray *) cart {
+    currentCart = cart;
+    return YES;
+}
+
+- (void) viewDidLoad {
+    cartAddress.text    = currentCart[0];
+    thumbsUp.text       = currentCart[3];
+    thumbsDown.text     = currentCart[4];
+    drinkBool.text      = currentCart[5];
+    pitaBool.text       = currentCart[6];
+    greenSauceBool.text = currentCart[7];
+}
+
 @end
 
 
