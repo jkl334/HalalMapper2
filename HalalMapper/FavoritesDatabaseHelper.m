@@ -57,18 +57,21 @@ static sqlite3_stmt *statement                 = nil;
 }
 
 
-- (BOOL) saveData:(NSArray*)cartData   {
+- (BOOL) saveData:(NSArray*)cartData {
     
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO favorites (name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", cartData[0], cartData[1], cartData[2], cartData[3], cartData[4], cartData[5], cartData[6], cartData[7]];
+        NSLog(@"%@", insertSQL);
         const char *insert_stmt = [insertSQL UTF8String];
         
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE) {
+            NSLog(@"Yes");
             return YES;
         }
         else {
+             NSLog(@"No");
             return NO;
         }
         sqlite3_reset(statement);
@@ -155,7 +158,7 @@ static sqlite3_stmt *statement                 = nil;
     return nil;
 }
 
-- (NSArray*) getAll:(NSString*) name {
+- (NSMutableArray*) getAll {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat: @"SELECT name FROM favorites"];

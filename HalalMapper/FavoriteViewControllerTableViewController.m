@@ -32,8 +32,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
-    //return self.favoriteData.count
+//    return 7;
+    return self.favoriteData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -45,9 +45,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
  
-    // Configure the cell.
-    //cell.textLabel.text = @"Boobs";
-    //cell.textLabel.text = [self.favoriteData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.favoriteData objectAtIndex:indexPath.row];
     return cell;
 }
 

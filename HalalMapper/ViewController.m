@@ -96,15 +96,11 @@
     if ([segue.identifier isEqualToString:@"segueToFavorite"]) {
 
         FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
-        NSMutableArray *cartArray = [[NSMutableArray alloc] initWithCapacity:[favorites getCount]];
-        for (int i =0; i < [favorites getCount]; i++) {
-            NSArray *favoriteItem = [favorites findByName:[NSString stringWithFormat:@"%i", i]];
-            [cartArray insertObject:cartDataRow atIndex: i];
-        }
-        // Get faves and pass into tableView
+        NSMutableArray *favoriteItems      = [favorites getAll];
+        
         
         FavoriteViewControllerTableViewController *destination = segue.destinationViewController;
-        //destination.theArrayOfFavoritesData = myArray;
+        destination.favoriteData = favoriteItems;
         
     }
 }

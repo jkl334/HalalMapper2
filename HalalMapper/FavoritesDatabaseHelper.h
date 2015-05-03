@@ -23,4 +23,6 @@
 
 - (NSArray*) findByName:(NSString*)name;
 
+- (NSMutableArray*) getAll;
+
 @end
