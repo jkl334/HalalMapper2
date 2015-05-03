@@ -35,6 +35,7 @@
 		CEE47DF81AF16C15009D6C49 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */; };
 		CEE47DF91AF44AF3009D6C49 /* NSObject_DatabaseHelper.h in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */; };
 		CEE47DFA1AF45FBA009D6C49 /* NSObject_DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */; };
+		CEE47DFD1AF5A226009D6C49 /* FavoritesDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE47DFC1AF5A226009D6C49 /* FavoritesDatabaseHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		CEE47DF51AF16ADB009D6C49 /* NSObject_DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject_DatabaseHelper.h; sourceTree = "<group>"; };
 		CEE47DF61AF16B44009D6C49 /* NSObject_DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObject_DatabaseHelper.m; sourceTree = "<group>"; };
 		CEE47DF71AF16C15009D6C49 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CEE47DFB1AF5A226009D6C49 /* FavoritesDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDatabaseHelper.h; sourceTree = "<group>"; };
+		CEE47DFC1AF5A226009D6C49 /* FavoritesDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDatabaseHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				72E08E3E1AF593520049BC80 /* FavoriteViewControllerTableViewController.m */,
 				72B1178E1AF173EC0043E8BD /* DataViewController.h */,
 				72B1178F1AF173EC0043E8BD /* DataViewController.m */,
+				CEE47DFB1AF5A226009D6C49 /* FavoritesDatabaseHelper.h */,
+				CEE47DFC1AF5A226009D6C49 /* FavoritesDatabaseHelper.m */,
 				72CF2CB71AEE9A53003F3322 /* ViewController.h */,
 				72CF2CB81AEE9A53003F3322 /* ViewController.m */,
 				72CF2CBA1AEE9A53003F3322 /* Main.storyboard */,
@@ -311,6 +316,7 @@
 				72B117901AF173EC0043E8BD /* DataViewController.m in Sources */,
 				72E08E3C1AF542570049BC80 /* DatabaseLoader.m in Sources */,
 				72E08E3F1AF593520049BC80 /* FavoriteViewControllerTableViewController.m in Sources */,
+				CEE47DFD1AF5A226009D6C49 /* FavoritesDatabaseHelper.m in Sources */,
 				72CF2CB91AEE9A53003F3322 /* ViewController.m in Sources */,
 				72CF2CB61AEE9A53003F3322 /* AppDelegate.m in Sources */,
 				72CF2CB31AEE9A53003F3322 /* main.m in Sources */,
