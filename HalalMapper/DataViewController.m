@@ -38,7 +38,12 @@ NSArray *currentCart;
 
 - (IBAction)favoriteThisCart:(id)sender {
     FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
-    [favorites saveData: currentCart[0]];
+    if ([favorites findByName: currentCart[0]] != NULL) {
+        //do nothing
+        NSLog(@"Already in favorites");
+    } else {
+        [favorites saveData: currentCart[0]];
+    }
 }
 
 @end
