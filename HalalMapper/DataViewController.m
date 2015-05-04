@@ -21,6 +21,7 @@
 @synthesize favoriteButton;
 @synthesize upButton;
 @synthesize downButton;
+@synthesize price;
 
 BOOL opinionTaken = NO;
 
@@ -39,6 +40,8 @@ NSArray *currentCart;
     drinkBool.text      = currentCart[5];
     pitaBool.text       = currentCart[6];
     greenSauceBool.text = currentCart[7];
+    price.text          = currentCart[8];
+    opinionTaken        = NO;
 }
 
 - (IBAction)favoriteThisCart:(id)sender {
@@ -56,13 +59,11 @@ NSArray *currentCart;
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
         NSLog(@"liked");
         [db updateLikes:currentCart[0] likes:[currentCart[3] integerValue]];
-        
         NSObject_DatabaseHelper *db2 = [NSObject_DatabaseHelper getSharedInstance];
-        
-        NSString *newText            = [db2 findByName:currentCart[0]][3];
-        NSLog(@"%@", [db2 findByName:currentCart[0]][3]);
-        thumbsUp.text = newText;
-        opinionTaken  = YES;
+        NSArray *cart = [db2 findByName:currentCart[0]];
+        int likes = [cart[3] intValue];
+        thumbsUp.text = [NSString stringWithFormat:@"%d", likes + 1];
+        opinionTaken = YES;
     }
 }
 
@@ -71,8 +72,10 @@ NSArray *currentCart;
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
         NSLog(@"disliked");
         [db updateLikes:currentCart[0] likes:[currentCart[4] integerValue]];
-        NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
-        thumbsUp.text = [db findByName:currentCart[0]][4];
+        NSObject_DatabaseHelper *db2 = [NSObject_DatabaseHelper getSharedInstance];
+        NSArray *cart = [db2 findByName:currentCart[0]];
+        int dislikes = [cart[4] intValue];
+        thumbsDown.text = [NSString stringWithFormat:@"%d", dislikes + 1];
         opinionTaken = YES;
     }
 }

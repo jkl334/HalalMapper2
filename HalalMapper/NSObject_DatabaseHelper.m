@@ -39,7 +39,7 @@ static sqlite3_stmt *statement                 = nil;
         const char *dbpath = [databasePath UTF8String];
         if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
             char       *errMsg;
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS cartsTable (cartid integer primary key, name text, latitude text, longitude text, likes text, dislikes text, freepita text, drinkincluded text, greensauce text)";
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS cartsTable (cartid integer primary key, name text, latitude text, longitude text, likes text, dislikes text, freepita text, drinkincluded text, greensauce text, price text)";
             if (sqlite3_exec(database, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
                 isSuccess = NO;
                 NSLog(@"Failed to create table");
@@ -55,7 +55,7 @@ static sqlite3_stmt *statement                 = nil;
     return isSuccess;
 }
 
-//saves cart data
+// saves initial cart data
 - (BOOL) saveData:(NSString*)cartid
              name:(NSString*)name
          latitude:(NSString*)latitude
@@ -64,11 +64,12 @@ static sqlite3_stmt *statement                 = nil;
          dislikes:(NSString*)dislikes
          freepita:(NSString*)freepita
     drinkincluded:(NSString*)drinkincluded
-       greensauce:(NSString*)greensauce    {
+       greensauce:(NSString*)greensauce
+            price:(NSString*)price{
     
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO cartsTable (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce) values (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", [cartid integerValue], name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce];
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO cartsTable (cartid,name,latitude,longitude,likes,dislikes,freepita,drinkincluded, greensauce, price) values (\"%d\",\"%@\", \"%@\", \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", [cartid integerValue], name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce, price];
         const char *insert_stmt = [insertSQL UTF8String];
         
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
@@ -87,11 +88,11 @@ static sqlite3_stmt *statement                 = nil;
 
 
 
-//finds cart by name
+// finds cart by name
 - (NSArray*) findByName:(NSString*) name {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM cartsTable WHERE name=\"%@\"",name];
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce, price FROM cartsTable WHERE name=\"%@\"",name];
         
         const char *query_stmt      = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
@@ -124,6 +125,9 @@ static sqlite3_stmt *statement                 = nil;
                 NSString *greensauce    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
                 [resultArray addObject:greensauce];
                 
+                NSString *price    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 8)];
+                [resultArray addObject:price];
+                
                 return resultArray;
             }
             else {
@@ -136,11 +140,11 @@ static sqlite3_stmt *statement                 = nil;
     return nil;
 }
 
-//finds by primary key
+// finds by primary key
 - (NSArray*) findByCartId:(NSString*) cartid {
             const char *dbpath = [databasePath UTF8String];
             if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-                NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce FROM cartsTable WHERE cartid=\"%@\"",cartid];
+                NSString *querySQL = [NSString stringWithFormat: @"SELECT name, latitude, longitude, likes, dislikes, freepita, drinkincluded, greensauce, price FROM cartsTable WHERE cartid=\"%@\"",cartid];
                 
                 const char *query_stmt      = [querySQL UTF8String];
                 NSMutableArray *resultArray = [[NSMutableArray alloc]init];
@@ -173,6 +177,9 @@ static sqlite3_stmt *statement                 = nil;
                         NSString *greensauce    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 7)];
                         [resultArray addObject:greensauce];
                         
+                        NSString *price    = [[NSString alloc]initWithUTF8String: (const char *) sqlite3_column_text(statement, 8)];
+                        [resultArray addObject:price];
+                        
                         return resultArray;
                     }
                     else {
@@ -185,46 +192,46 @@ static sqlite3_stmt *statement                 = nil;
             return nil;
 }
 
-- (BOOL) updateLikes:(NSString *) name
-               likes:(int) likes {
+
+- (BOOL) updateLikes:(NSString *)  name
+               likes:(NSInteger *) likes {
     BOOL success;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\";", [NSString stringWithFormat:@"%d", likes+1], name];
+        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", likes+1], name];
         const char *update_stmt = [updateSQL UTF8String];
-        if (sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL ) == SQLITE_OK) {
-            NSLog(@"in prepare");
-//            NSAssert1(0, @"Error creating. '%s'", sqlite3_errmsg(database));
-            if (sqlite3_step(statement) == SQLITE_DONE) {
-                NSLog(@"in step");
-                success = true;
-                sqlite3_finalize(statement);
-                sqlite3_close(database);
-            }
+        sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            success = true;
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
         }
-    
         return YES;
     }
+    
+    
     return NO;
 }
 
-- (BOOL) updateDislikes:(NSString *)name
-               dislikes:(int) dislikes{
+- (BOOL) updateDislikes:(NSString *)  name
+               dislikes:(NSInteger *) dislikes {
     BOOL success;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET dislikes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", dislikes+1], name];
         const char *update_stmt = [updateSQL UTF8String];
         sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
-        sqlite3_finalize(statement);
-        sqlite3_close(database);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            success = true;
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+        }
         return YES;
     }
     
-    if (sqlite3_step(statement) == SQLITE_DONE)
-    {
-        success = true;
-    }
+    
     return NO;
 }
 

@@ -22,7 +22,8 @@
                dislikes:@"3"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"NO" ];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"1"
                    name:@"W Houston and Broadway"
@@ -32,7 +33,8 @@
                dislikes:@"14"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$6.00"];
     
     [cartsData saveData:@"2"
                    name:@"Broadway and Astor"
@@ -42,7 +44,8 @@
                dislikes:@"16"
                freepita:@"NO"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"3"
                    name:@"Rafiqis E8th and Broadway"
@@ -52,7 +55,8 @@
                dislikes:@"13"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$6.00"];
     
     [cartsData saveData:@"4"
                    name:@"E14th and 3rd Ave"
@@ -62,7 +66,8 @@
                dislikes:@"15"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"5"
                    name:@"E14th and 4th Ave"
@@ -72,7 +77,8 @@
                dislikes:@"15"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$6.00"];
     
     [cartsData saveData:@"6"
                    name:@"3rd St and 6th Ave"
@@ -82,7 +88,8 @@
                dislikes:@"27"
                freepita:@"NO"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"7"
                    name:@"Bleeker and Macdougal"
@@ -92,7 +99,8 @@
                dislikes:@"10"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"8"
                    name:@"Waverly and 6th Ave"
@@ -102,7 +110,8 @@
                dislikes:@"2"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"9"
                    name:@"13th St and 5th Ave"
@@ -112,7 +121,8 @@
                dislikes:@"0"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"10"
                    name:@"Morton and Bedford"
@@ -122,7 +132,8 @@
                dislikes:@"16"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"11"
                    name:@"Macdougal and Houston"
@@ -132,7 +143,8 @@
                dislikes:@"23"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"12"
                    name:@"Bleeker and Christopher"
@@ -142,7 +154,8 @@
                dislikes:@"3"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"13"
                    name:@"W4th and Washington Square East"
@@ -152,7 +165,8 @@
                dislikes:@"18"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"14"
                    name:@"Halal Guys 53rd and 6th Ave"
@@ -162,7 +176,8 @@
                dislikes:@"2"
                freepita:@"YES"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"15"
                    name:@"Halal Guys 52nd and 6th Ave"
@@ -172,7 +187,8 @@
                dislikes:@"5"
                freepita:@"YES"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"16"
                    name:@"W45th St and 10th Ave"
@@ -182,7 +198,8 @@
                dislikes:@"19"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"17"
                    name:@"Lorimer St and Grand St"
@@ -192,7 +209,8 @@
                dislikes:@"1"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"18"
                    name:@"Havemeyer St and Metropolitan Ave"
@@ -202,7 +220,8 @@
                dislikes:@"79"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$6.00"];
     
     [cartsData saveData:@"19"
                    name:@"Hewes St and Broadway"
@@ -212,7 +231,8 @@
                dislikes:@"28"
                freepita:@"YES"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$6.00"];
     
     [cartsData saveData:@"20"
                    name:@"Fulton St and Broadway"
@@ -222,7 +242,8 @@
                dislikes:@"34"
                freepita:@"NO"
           drinkincluded:@"YES"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"21"
                    name:@"E 1st St and 2nd Ave"
@@ -232,7 +253,8 @@
                dislikes:@"22"
                freepita:@"YES"
           drinkincluded:@"YES"
-             greensauce:@"YES"];
+             greensauce:@"YES"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"22"
                    name:@"Jay St Metrotech"
@@ -242,7 +264,8 @@
                dislikes:@"11"
                freepita:@"YES"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$5.00"];
     
     [cartsData saveData:@"23"
                    name:@"E 14th St and Ave A"
@@ -252,7 +275,8 @@
                dislikes:@"28"
                freepita:@"NO"
           drinkincluded:@"NO"
-             greensauce:@"NO"];
+             greensauce:@"NO"
+                  price:@"$6.00"];
     
 }
 

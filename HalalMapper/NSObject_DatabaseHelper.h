@@ -25,14 +25,15 @@
          dislikes:(NSString*)dislikes
          freepita:(NSString*)freepita
          drinkincluded:(NSString*)drinkincluded
-         greensauce:(NSString*)greensauce;
+         greensauce:(NSString*)greensauce
+         price:(NSString*)price;
 
 - (NSArray*) findByName:(NSString*)name;
 
 - (NSArray*) findByCartId:(NSString*)cartid;
 
 - (BOOL) updateLikes:(NSString*) name
-               likes:(int) likes;
+               likes:(NSInteger*) likes;
 - (BOOL) updateDislikes:(NSString*) name
-               dislikes:(int) dislikes;
+               dislikes:(NSInteger*) dislikes;
 @end
