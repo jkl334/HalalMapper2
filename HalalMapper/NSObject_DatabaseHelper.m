@@ -185,24 +185,25 @@ static sqlite3_stmt *statement                 = nil;
             return nil;
 }
 
-- (BOOL) updateLikes:(NSString *)name
-               likes:(int) likes{
+- (BOOL) updateLikes:(NSString *) name
+               likes:(int) likes {
     BOOL success;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", likes+1], name];
+        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\";", [NSString stringWithFormat:@"%d", likes+1], name];
         const char *update_stmt = [updateSQL UTF8String];
-        sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
-        sqlite3_finalize(statement);
-        sqlite3_close(database);
+        if (sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL ) == SQLITE_OK) {
+            NSLog(@"in prepare");
+//            NSAssert1(0, @"Error creating. '%s'", sqlite3_errmsg(database));
+            if (sqlite3_step(statement) == SQLITE_DONE) {
+                NSLog(@"in step");
+                success = true;
+                sqlite3_finalize(statement);
+                sqlite3_close(database);
+            }
+        }
+    
         return YES;
-        
-    }
-    
-    
-    if (sqlite3_step(statement) == SQLITE_DONE)
-    {
-        success = true;
     }
     return NO;
 }

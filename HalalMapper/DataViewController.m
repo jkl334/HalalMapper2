@@ -45,7 +45,7 @@ NSArray *currentCart;
     FavoritesDatabaseHelper *favorites = [FavoritesDatabaseHelper getSharedInstance];
     if ([favorites findByName: currentCart[0]] != NULL) {
         //do nothing
-        NSLog(@"Already in favorites");
+       
     } else {
         [favorites saveData: currentCart[0]];
     }
@@ -54,15 +54,24 @@ NSArray *currentCart;
 - (IBAction)like:(id)sender {
     NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
+        NSLog(@"liked");
         [db updateLikes:currentCart[0] likes:[currentCart[3] integerValue]];
-        thumbsUp.text = [db findByName:currentCart[0]][3];
-        opinionTaken = YES;
+        
+        NSObject_DatabaseHelper *db2 = [NSObject_DatabaseHelper getSharedInstance];
+        
+        NSString *newText            = [db2 findByName:currentCart[0]][3];
+        NSLog(@"%@", [db2 findByName:currentCart[0]][3]);
+        thumbsUp.text = newText;
+        opinionTaken  = YES;
     }
 }
+
 - (IBAction)dislike:(id)sender {
     NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
+        NSLog(@"disliked");
         [db updateLikes:currentCart[0] likes:[currentCart[4] integerValue]];
+        NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
         thumbsUp.text = [db findByName:currentCart[0]][4];
         opinionTaken = YES;
     }
