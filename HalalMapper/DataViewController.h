@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *cartAddress;
 @property (weak, nonatomic) IBOutlet UILabel *thumbsUp;
 @property (weak, nonatomic) IBOutlet UILabel *thumbsDown;
+@property (weak, nonatomic) IBOutlet UIButton *upButton;
+@property (weak, nonatomic) IBOutlet UIButton *downButton;
 @property (weak, nonatomic) IBOutlet UILabel *drinkBool;
 @property (weak, nonatomic) IBOutlet UILabel *pitaBool;
 @property (weak, nonatomic) IBOutlet UILabel *greenSauceBool;

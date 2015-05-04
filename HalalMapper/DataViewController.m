@@ -18,6 +18,8 @@
 @synthesize pitaBool;
 @synthesize greenSauceBool;
 @synthesize favoriteButton;
+@synthesize upButton;
+@synthesize downButton;
 
 
 NSArray *currentCart;

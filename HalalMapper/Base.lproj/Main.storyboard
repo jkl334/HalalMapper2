@@ -34,14 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsUp" id="lhG-jn-sWX">
-                                <rect key="frame" x="189" y="116" width="44" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbsDown" id="wqH-IQ-HMi">
-                                <rect key="frame" x="179" y="186" width="65" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink Included?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aOy-l9-pGf">
                                 <rect key="frame" x="129" y="291" width="121" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,8 +114,22 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.17085331251362401" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NKB-H3-Wca">
+                                <rect key="frame" x="193" y="115" width="44" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="thumbsUp">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MGI-Ve-FK0">
+                                <rect key="frame" x="178" y="184" width="75" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="thumbsDown">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2sc-kk-p4l">
-                                <rect key="frame" x="135" y="126" width="40" height="35"/>
+                                <rect key="frame" x="135" y="133" width="40" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.080225848228442587" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,12 +145,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cartAddress" destination="b3e-0v-YpC" id="RF1-kd-0Yy"/>
+                        <outlet property="downButton" destination="MGI-Ve-FK0" id="05S-aj-2gn"/>
                         <outlet property="drinkBool" destination="1hW-fQ-fD7" id="Nrn-Ed-XBu"/>
                         <outlet property="favoriteButton" destination="nzA-L8-0qH" id="UKC-Vt-haN"/>
                         <outlet property="greenSauceBool" destination="YRK-6E-NkM" id="U1o-bE-MTn"/>
                         <outlet property="pitaBool" destination="D3i-b5-JaT" id="qUi-Jl-tGz"/>
                         <outlet property="thumbsDown" destination="JmU-ri-jS7" id="Lh3-p7-tIu"/>
                         <outlet property="thumbsUp" destination="2sc-kk-p4l" id="dzT-mv-JuL"/>
+                        <outlet property="upButton" destination="NKB-H3-Wca" id="0uG-Nm-CnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sU0-Y8-DT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
