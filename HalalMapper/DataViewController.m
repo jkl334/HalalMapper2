@@ -8,6 +8,7 @@
 
 #import "DataViewController.h"
 #import "FavoritesDatabaseHelper.h"
+#import "NSObject_DatabaseHelper.h"
 
 @implementation DataViewController
 
@@ -20,6 +21,8 @@
 @synthesize favoriteButton;
 @synthesize upButton;
 @synthesize downButton;
+
+BOOL opinionTaken = NO;
 
 
 NSArray *currentCart;
@@ -47,6 +50,24 @@ NSArray *currentCart;
         [favorites saveData: currentCart[0]];
     }
 }
+
+- (IBAction)like:(id)sender {
+    NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
+    if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
+        [db updateLikes:currentCart[0] likes:[currentCart[3] integerValue]];
+        thumbsUp.text = [db findByName:currentCart[0]][3];
+        opinionTaken = YES;
+    }
+}
+- (IBAction)dislike:(id)sender {
+    NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
+    if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
+        [db updateLikes:currentCart[0] likes:[currentCart[4] integerValue]];
+        thumbsUp.text = [db findByName:currentCart[0]][4];
+        opinionTaken = YES;
+    }
+}
+
 
 @end
 
