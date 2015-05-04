@@ -32,7 +32,7 @@
 - (NSArray*) findByCartId:(NSString*)cartid;
 
 - (BOOL) updateLikes:(NSString*) name
-               likes:(int) likes;
+               likes:(NSInteger*) likes;
 - (BOOL) updateDislikes:(NSString*) name
-               dislikes:(int) dislikes;
+               dislikes:(NSInteger*) dislikes;
 @end

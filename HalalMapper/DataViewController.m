@@ -55,7 +55,10 @@ NSArray *currentCart;
     NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
         [db updateLikes:currentCart[0] likes:[currentCart[3] integerValue]];
-        thumbsUp.text = [db findByName:currentCart[0]][3];
+        NSObject_DatabaseHelper *db2 = [NSObject_DatabaseHelper getSharedInstance];
+        NSArray *cart = [db2 findByName:currentCart[0]];
+        int likes = [cart[3] intValue];
+        thumbsUp.text = [NSString stringWithFormat:@"%d", likes + 1];
         opinionTaken = YES;
     }
 }
@@ -63,7 +66,10 @@ NSArray *currentCart;
     NSObject_DatabaseHelper *db = [NSObject_DatabaseHelper getSharedInstance];
     if ([db findByName: currentCart[0]] != NULL && !opinionTaken) {
         [db updateLikes:currentCart[0] likes:[currentCart[4] integerValue]];
-        thumbsUp.text = [db findByName:currentCart[0]][4];
+        NSObject_DatabaseHelper *db2 = [NSObject_DatabaseHelper getSharedInstance];
+        NSArray *cart = [db2 findByName:currentCart[0]];
+        int dislikes = [cart[4] intValue];
+        thumbsDown.text = [NSString stringWithFormat:@"%d", dislikes + 1];
         opinionTaken = YES;
     }
 }

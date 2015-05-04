@@ -186,44 +186,52 @@ static sqlite3_stmt *statement                 = nil;
 }
 
 - (BOOL) updateLikes:(NSString *)name
-               likes:(int) likes{
+               likes:(NSInteger *) likes{
     BOOL success;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
-        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", likes+1], name];
+//        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", likes+1], name];
+        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = ? WHERE name= ?"];
+        
+        sqlite3_bind_text(statement, 1, [[NSString stringWithFormat:@"%d", likes+1] UTF8String], -1, SQLITE_TRANSIENT);
+        sqlite3_bind_text(statement, 2, [name UTF8String], -1, SQLITE_TRANSIENT);
         const char *update_stmt = [updateSQL UTF8String];
+        
+        
         sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
-        sqlite3_finalize(statement);
-        sqlite3_close(database);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            success = true;
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+        }
         return YES;
         
     }
     
     
-    if (sqlite3_step(statement) == SQLITE_DONE)
-    {
-        success = true;
-    }
+    
     return NO;
 }
 
 - (BOOL) updateDislikes:(NSString *)name
-               dislikes:(int) dislikes{
+               dislikes:(NSInteger *) dislikes{
     BOOL success;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET dislikes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", dislikes+1], name];
         const char *update_stmt = [updateSQL UTF8String];
         sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
-        sqlite3_finalize(statement);
-        sqlite3_close(database);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            success = true;
+            sqlite3_finalize(statement);
+            sqlite3_close(database);
+        }
         return YES;
     }
     
-    if (sqlite3_step(statement) == SQLITE_DONE)
-    {
-        success = true;
-    }
+    
     return NO;
 }
 
