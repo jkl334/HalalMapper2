@@ -23,7 +23,7 @@ static sqlite3_stmt *statement                 = nil;
     return sharedInstance;
 }
 
-
+//create database to work with
 - (BOOL) createDB {
     NSString *docsDir;
     NSArray  *dirPaths;
@@ -55,7 +55,7 @@ static sqlite3_stmt *statement                 = nil;
     return isSuccess;
 }
 
-
+//saves cart data
 - (BOOL) saveData:(NSString*)cartid
              name:(NSString*)name
          latitude:(NSString*)latitude
@@ -87,6 +87,7 @@ static sqlite3_stmt *statement                 = nil;
 
 
 
+//finds cart by name
 - (NSArray*) findByName:(NSString*) name {
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
@@ -135,6 +136,7 @@ static sqlite3_stmt *statement                 = nil;
     return nil;
 }
 
+//finds by primary key
 - (NSArray*) findByCartId:(NSString*) cartid {
             const char *dbpath = [databasePath UTF8String];
             if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
@@ -181,4 +183,48 @@ static sqlite3_stmt *statement                 = nil;
                 }
             }
             return nil;
-}@end
+}
+
+- (BOOL) updateLikes:(NSString *)name
+               likes:(int) likes{
+    BOOL success;
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
+        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET likes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", likes+1], name];
+        const char *update_stmt = [updateSQL UTF8String];
+        sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+        
+    }
+    
+    
+    if (sqlite3_step(statement) == SQLITE_DONE)
+    {
+        success = true;
+    }
+    return NO;
+}
+
+- (BOOL) updateDislikes:(NSString *)name
+               dislikes:(int) dislikes{
+    BOOL success;
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
+        NSString *updateSQL = [NSString stringWithFormat: @"UPDATE cartsTable SET dislikes = \"%@\" WHERE name=\"%@\"", [NSString stringWithFormat:@"%d", dislikes+1], name];
+        const char *update_stmt = [updateSQL UTF8String];
+        sqlite3_prepare_v2(database, update_stmt, -1, &statement, NULL );
+        sqlite3_finalize(statement);
+        sqlite3_close(database);
+        return YES;
+    }
+    
+    if (sqlite3_step(statement) == SQLITE_DONE)
+    {
+        success = true;
+    }
+    return NO;
+}
+
+@end
